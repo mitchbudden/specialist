@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { goalRef } from '../firebase';
+import { goalRef } from '../../firebase';
 import { connect } from 'react-redux';
-import { setGoals } from '../actions';
+import { setGoals } from '../../actions';
 import GoalItem from './GoalItem';
 
 class GoalList extends Component {

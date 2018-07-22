@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { firebaseApp } from '../firebase';
+import { firebaseApp } from '../../firebase';
 import { connect } from 'react-redux';
 import AddGoal from './AddGoal';
 import GoalList from './GoalList';
