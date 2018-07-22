@@ -1,0 +1,62 @@
+.title {
+    text-align: center;
+    font-size: 35px;
+    margin: 10px;
+    color: #3182bd;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px;
+    color: #3182bd;  
+    margin-bottom: 9%;
+}
+
+.auth-input {
+    margin: 0.5% 25%;
+    width: 50%;
+    height: 3%;
+    font-size: 18px;    
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1% 35%;
+    width: 30%;
+    height: 3%;
+}
+
+.btn {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.auth-link {
+    padding: 15% 5%;
+    text-align: center;
+    color: black;
+}
+
+.page-background {
+    background-image: url('https://i.pinimg.com/736x/c2/b8/be/c2b8bebb535edacaeff5cb5e26136efb--surf-van-vw-camper-vans.jpg');
+    background-attachment: fixed;
+    opacity: 10%;
+    height: 50em;
+    z-index: -1;
+}
+
+.auth-background {
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.auth-error {
+    color: red;
+    text-align: center;
+}

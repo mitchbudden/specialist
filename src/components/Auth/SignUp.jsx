@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router';
 import { firebaseApp } from '../../firebase';
+import './Auth.css';
 
 class SignUp extends Component {
     constructor(props){
@@ -23,32 +24,35 @@ class SignUp extends Component {
 
     render() {
         return (
-        <div className="form-inline" style={{margin: '5%'}}>
-            <h2>Sign Up</h2>
-            <div className="form-group">
-                <input 
-                    className="form-control" 
-                    type="text" 
-                    style={{margin: '5px'}}
-                    placeholder="email" 
-                    onChange={event => this.setState({email: event.target.value})}
-                />
-                <input
-                    className="form-control"
-                    type="password"
-                    style={{margin: '5px'}}
-                    placeholder="password"
-                    onChange={event => this.setState({password: event.target.value})}
-                />
-                <button 
-                    className="btn btn-primary" 
-                    type="button"
-                    onClick={() => this.signUp()}>Sign Up  
-                </button>
-            </div>
-            <div>{this.state.error.message}</div>
-            <div>
-                <Link to={'/signin'}>Already a user? Sign in instead.</Link>
+        <div className="page-background">
+            <div className="auth-background">
+                <h1 className="title">Special List</h1>
+                <h2 className="sub-title"><i>Get The Stuff the Pros Use</i></h2>
+                <div>
+                    <input 
+                        className="auth-input" 
+                        type="text" 
+                        placeholder="email" 
+                        onChange={event => this.setState({email: event.target.value})}
+                    />
+                    <input
+                        className="auth-input"
+                        type="password"
+                        placeholder="password"
+                        onChange={event => this.setState({password: event.target.value})}
+                    />
+                </div>
+                <div className="button-group">
+                    <button 
+                        className="btn btn-primary" 
+                        type="button"
+                        onClick={() => this.signUp()}>Sign Up  
+                    </button>
+                    <div className="auth-error">{this.state.error.message}</div>
+                    <div>
+                        <Link to={'/signin'}>Already a user? Sign in instead.</Link>
+                    </div>
+                </div>
             </div>
         </div>
         );
