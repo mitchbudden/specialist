@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { listsRef } from '../../firebase';
 import { connect } from 'react-redux';
 
-class AddGoal extends Component {
+class AddList extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -10,7 +10,7 @@ class AddGoal extends Component {
         }
     }
 
-    addGoal() {
+    addList() {
         const { title } = this.state;
         const { email } = this.props.user;
         listsRef.push({email, title});
@@ -22,14 +22,14 @@ class AddGoal extends Component {
             <div className="form-group">
                 <input 
                     type="text"
-                    placeholder="Add a goal"
+                    placeholder="Add a list"
                     className="form-control"
                     style={{marginRight: '5px'}}
                     onChange={event => this.setState({title: event.target.value})}
                 />
                 <button className="btn btn-success"
                         type="button"
-                        onClick={() => this.addGoal()}>Submit
+                        onClick={() => this.addList()}>Submit
                 </button>
             </div>
         </div>
@@ -42,4 +42,4 @@ function mapStateToProps(state) {
     return { user };
 }
 
-export default connect(mapStateToProps, null)(AddGoal);
+export default connect(mapStateToProps, null)(AddList);

@@ -1,10 +1,10 @@
-import { SET_GOALS } from '../constants';
+import { SET_LISTS } from '../constants';
 
 export default (state = [], action) => {
     switch(action.type) {
-        case SET_GOALS:
-            const { goals } = action;
-            return goals;
+        case SET_LISTS:
+            const { lists } = action;
+            return lists;
         default:
             return state;    
     }

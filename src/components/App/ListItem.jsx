@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class GoalItem extends Component {
+class ListItem extends Component {
 
     render() {
-        const { email, title } = this.props.goal;
+        const { email, title } = this.props.list;
         return (
         <div style={{margin: '5px'}}>
             <strong>{title}</strong>
@@ -19,4 +19,4 @@ function mapStateToProps(state) {
     return { user };
 }
 
-export default connect(mapStateToProps, null)(GoalItem);
+export default connect(mapStateToProps, null)(ListItem);
