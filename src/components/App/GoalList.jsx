@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { goalRef } from '../../firebase';
+import { listsRef } from '../../firebase';
 import { connect } from 'react-redux';
 import { setGoals } from '../../actions';
 import GoalItem from './GoalItem';
 
 class GoalList extends Component {
     componentDidMount() {
-        goalRef.on('value', snap => {
+        listsRef.on('value', snap => {
             let goals = [];
             snap.forEach(goal => {
                 const { email, title } = goal.val();
