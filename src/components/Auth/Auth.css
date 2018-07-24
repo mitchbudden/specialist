@@ -3,6 +3,7 @@
     font-size: 35px;
     margin: 10px;
     color: #3182bd;
+    font-family: 'Roboto', sans-serif;    
 }
 
 .sub-title {
@@ -12,6 +13,7 @@
     margin: 10px;
     color: #3182bd;  
     margin-bottom: 9%;
+    font-family: 'Roboto', sans-serif;    
 }
 
 .auth-input {
@@ -19,6 +21,7 @@
     width: 50%;
     height: 3%;
     font-size: 18px;    
+    font-family: 'Roboto', sans-serif;    
 }
 
 .button-group {
@@ -28,6 +31,7 @@
     margin: 1% 35%;
     width: 30%;
     height: 3%;
+    font-family: 'Roboto', sans-serif;    
 }
 
 .btn {
@@ -42,10 +46,11 @@
 }
 
 .page-background {
-    background-image: url('https://i.pinimg.com/736x/c2/b8/be/c2b8bebb535edacaeff5cb5e26136efb--surf-van-vw-camper-vans.jpg');
+    padding: 30px;
+    background-image: url('https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9028dd6de93ea441c4fa84efb852bcf9&auto=format&fit=crop&w=1224&q=80');
     background-attachment: fixed;
     opacity: 10%;
-    height: 50em;
+    height: 75em;
     z-index: -1;
 }
 
@@ -53,7 +58,8 @@
     width: 80%;
     margin-left: 10%;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #deebf7;
+    box-shadow: 2px 2px #deebf7;
 }
 
 .auth-error {

@@ -27,7 +27,7 @@ class AddList extends Component {
                     style={{marginRight: '5px'}}
                     onChange={event => this.setState({title: event.target.value})}
                 />
-                <button className="btn btn-success"
+                <button className="btn btn-default"
                         type="button"
                         onClick={() => this.addList()}>Submit
                 </button>

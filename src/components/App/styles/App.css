@@ -1,0 +1,27 @@
+.app-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 5px;
+    box-shadow: 2px 2px grey;
+    background-color: #3182bd;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.app-header-item {
+    font-weight: 500;
+    font-size: 22px;
+    color: white;  
+    margin: 10px;
+}
+
+.app-section-header {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px; 
+}
+
+.sign-out {
+    font-family: 'Roboto', sans-serif;    
+}

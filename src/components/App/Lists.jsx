@@ -3,6 +3,7 @@ import { listsRef } from '../../firebase';
 import { connect } from 'react-redux';
 import { setLists } from '../../actions';
 import ListItem from './ListItem';
+import './styles/Lists.css';
 
 class Lists extends Component {
     componentDidMount() {
@@ -19,7 +20,7 @@ class Lists extends Component {
 
     render() {
         return (
-            <div>
+            <div className="list-group">
                 {this.props.lists.map((list, index) => {
                     return (
                         <ListItem key={index} list={list}>{list.title}</ListItem>

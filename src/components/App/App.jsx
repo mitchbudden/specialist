@@ -3,6 +3,7 @@ import { firebaseApp } from '../../firebase';
 import { connect } from 'react-redux';
 import AddList from './AddList';
 import Lists from './Lists';
+import './styles/App.css';
 
 class App extends Component {
 
@@ -13,13 +14,14 @@ class App extends Component {
   render() {
     return (
     <div style={{margin: '5px'}}>
-      <h3>Special List</h3>
-      <AddList />
-      <hr />
-      <h4>Lists</h4>
+      <div className="app-header">
+        <h1 className="app-header-item">Special List</h1>
+        <AddList/>
+      </div>
+      <h4 className="app-section-header">Most Popular Lists</h4>
       <Lists />
       <hr />    
-      <button className="btn btn-danger"
+      <button className="btn btn-default sign-out"
               onClick={() => this.signOut()}>
       Sign Out  
       </button>

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './styles/ListItem.css';
 
 class ListItem extends Component {
 
     render() {
         const { email, title } = this.props.list;
         return (
-        <div style={{margin: '5px'}}>
-            <strong>{title}</strong>
-            <span style={{margin: '5px'}}> submitted by <em>{email}</em></span>
+        <div className="list-item-card">
+            <h1 className="list-header">{title}</h1>
+            <h2 className="list-description">submitted by {email}</h2>
         </div>
         )
     }
