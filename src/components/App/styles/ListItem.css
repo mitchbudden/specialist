@@ -1,12 +1,18 @@
-.list-item-card {
+.list-item-outer-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 1%;
     padding: 1%;
     width: 90%;
-    height: 100px;
+    height: 160px;
     border: 1px solid #deebf7;
     box-shadow: 2px 2px #deebf7;
+}
+
+.list-item-card {
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -22,4 +28,9 @@
     padding: 5px;    
     font-size: 16px;
     font-weight: 300;
+}
+
+.list-item-image {
+    height: 10em;
+    width: 10em;
 }

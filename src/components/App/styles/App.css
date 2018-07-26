@@ -4,16 +4,16 @@
     justify-content: space-between;
     font-size: 22px;
     padding: 5px;
-    box-shadow: 2px 2px grey;
-    background-color: #3182bd;
-    color: white;
+    box-shadow: 2px 2px #9ecae1;
+    background-color: #deebf7;
+    color: black;
     font-family: 'Roboto', sans-serif;
 }
 
 .app-header-item {
     font-weight: 500;
     font-size: 22px;
-    color: white;  
+    color: black;  
     margin: 10px;
 }
 

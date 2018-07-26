@@ -10,9 +10,9 @@ class Lists extends Component {
         listsRef.on('value', snap => {
             let lists = [];
             snap.forEach(list => {
-                const { email, title } = list.val();
+                const { email, title, description, image } = list.val();
                 const serverKey = list.key;
-                lists.push({email, title, serverKey});
+                lists.push({email, title, description, image, serverKey});
             })
             this.props.setLists(lists);
         })
@@ -23,7 +23,9 @@ class Lists extends Component {
             <div className="list-group">
                 {this.props.lists.map((list, index) => {
                     return (
-                        <ListItem key={index} list={list}>{list.title}</ListItem>
+                        <ListItem key={index} 
+                                list={list}>{list.title}
+                        </ListItem>
                     )
                 })}
             </div>
