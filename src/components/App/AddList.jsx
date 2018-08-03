@@ -15,11 +15,13 @@ class AddList extends Component {
     }
 
     addList() {
-        const { title } = this.state;
-        const { email } = this.state;
-        const { description } = this.state;
-        const { image } = this.state;
-        listsRef.push({email, title, description, image});
+        const newListObject = {
+            title: this.state.title,
+            email: this.props.user.email,
+            description: this.state.description,
+            image: this.state.image
+        }
+        listsRef.push(newListObject);
     }
 
     render() {
@@ -34,7 +36,7 @@ class AddList extends Component {
                 />
                 <input 
                     type="text"
-                    placeholder="Add a description s"
+                    placeholder="Add a description"
                     className="form-control"
                     onChange={event => this.setState({description: event.target.value})}
                 />
