@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { firebaseApp } from '../../firebase';
 import { connect } from 'react-redux';
-import AddList from './AddList';
-import Lists from './Lists';
-import './styles/App.css';
-import './styles/Global.css'
+import AddList from './Add/AddList';
+import Lists from './Lists.jsx';
+import './App.css';
+import './Global.css'
 
 class App extends Component {
 
@@ -17,6 +17,9 @@ class App extends Component {
     <div style={{margin: '5px'}}>
       <div className="app-header">
         <h1 className="app-header-item">Special List</h1>
+        <input type="text" 
+              className="app-header-item"
+              placeholder="Find a List"/>
         <h1 className="app-header-item">Sign In/ Sign Up</h1>
       </div>
       <AddList/>

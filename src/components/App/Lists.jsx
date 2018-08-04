@@ -3,7 +3,7 @@ import { listsRef } from '../../firebase';
 import { connect } from 'react-redux';
 import { setLists } from '../../actions';
 import ListItem from './ListItem';
-import './styles/Lists.css';
+import './Lists.css';
 
 class Lists extends Component {
     componentDidMount() {

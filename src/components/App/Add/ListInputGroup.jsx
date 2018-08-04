@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { listsRef } from '../../firebase';
+import { listsRef } from '../../../firebase';
 import { connect } from 'react-redux';
-import './styles/Global.css';
-import './styles/AddList.css';
+import '../Global.css';
+import './AddList.css';
 
 class AddList extends Component {
     constructor(props){
@@ -10,8 +10,9 @@ class AddList extends Component {
         this.state = {
             title: '',
             description: '',
-            image: '',
+            image: ''
         }
+        this.isOpen = false;
     }
 
     addList() {

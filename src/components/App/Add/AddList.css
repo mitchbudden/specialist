@@ -1,0 +1,21 @@
+.list-input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+}
+
+.list-expansion {
+    display: flex;
+    flex-direction: row;    
+    margin: 10px;
+    padding: 10px;
+    width: 20%;
+}
+
+.add-list-button {
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
