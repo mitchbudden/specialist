@@ -12,20 +12,32 @@ class AddList extends Component {
     
     openInput() {
         this.isOpen = this.isOpen === false ? true : false;
-        console.log(this.isOpen);        
+        this.forceUpdate();
     }
 
     render() {
-        return (
-        <div>
-            <div className="list-expansion">
-                <h4>Add a List</h4>
-                <button className="primary-button add-list-button"
-                        onClick={() => this.openInput()}>&#43;</button>
+        if (this.isOpen) {
+            return (
+            <div>
+                <div className="list-expansion">
+                    <h4>Add a List</h4>
+                    <button className="primary-button add-list-button"
+                            onClick={() => this.openInput()}>&#45;</button>
+                </div>
+                <ListInputGroup />
             </div>
-            <ListInputGroup />
-        </div>        
-        )
+            )
+        } else {
+            return (
+            <div>
+                <div className="list-expansion">
+                    <h4>Add a List</h4>
+                    <button className="primary-button add-list-button"
+                            onClick={() => this.openInput()}>&#43;</button>
+                </div>
+            </div>
+            )
+        }
     }
 }
 

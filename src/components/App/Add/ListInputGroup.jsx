@@ -27,32 +27,39 @@ class AddList extends Component {
 
     render() {
         return (
-        <div className="list-input">
-            <div className="form-group">
-                <input 
-                    type="text"
-                    placeholder="Add a list"
-                    className="form-control"
-                    onChange={event => this.setState({title: event.target.value})}
-                />
-                <input 
-                    type="text"
-                    placeholder="Add a description"
-                    className="form-control"
-                    onChange={event => this.setState({description: event.target.value})}
-                />
-                <input 
-                    type="text"
-                    placeholder="Add an image"
-                    className="form-control"
-                    onChange={event => this.setState({image: event.target.value})}
-                />
+            <div className="list-input">
+                <div className="list-category">
+                    <h4 className="list-input-title">Title: </h4>
+                    <input 
+                        type="text"
+                        placeholder="List Title"
+                        className="list-input-field"
+                        onChange={event => this.setState({title: event.target.value})}
+                    />
+                </div>
+                <div className="list-category">
+                    <h4 className="list-input-title">Description: </h4>                    
+                    <input 
+                        type="text"
+                        placeholder="List description"
+                        className="list-input-field"
+                        onChange={event => this.setState({description: event.target.value})}
+                    />
+                </div>
+                <div className="list-category">
+                    <h4 className="list-input-title">Thumbnail Image: </h4>
+                    <input 
+                        type="text"
+                        placeholder="thumbnail image"
+                        className="list-input-field"
+                        onChange={event => this.setState({image: event.target.value})}
+                    />
+                </div>
                 <button className="primary-button"
                         type="button"
                         onClick={() => this.addList()}>Submit
                 </button>
             </div>
-        </div>
         )
     }
 }
