@@ -16,11 +16,11 @@ class App extends Component {
     return (
     <div style={{margin: '5px'}}>
       <div className="app-header">
-        <h1 className="app-header-item">Special List</h1>
+        <h1 className="masthead">Special List</h1>
         <input type="text" 
               className="app-header-item"
               placeholder="Find a List"/>
-        <h1 className="app-header-item">Sign In/ Sign Up</h1>
+        <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
       </div>
       <AddList/>
       <h4 className="app-section-header">Popular Lists</h4>

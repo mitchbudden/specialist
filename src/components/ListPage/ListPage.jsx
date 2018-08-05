@@ -25,14 +25,22 @@ class ListPage extends Component {
 
     render() {
         return (
-            <div className="content-container">
-                {this.props.lists.map((list, index) => {
-                    return (
-                        <ListContent key={index} 
-                                list={list}>
-                        </ListContent>
-                    )
-                })}
+            <div>
+                <div className="app-header">
+                    <h1 className="masthead">
+                        <a href="app"><i>Special List</i></a>
+                    </h1>
+                    <h1 className="app-header-item">Sign In/ Sign Up</h1>
+                </div>
+                <div className="content-container">
+                    {this.props.lists.map((list, index) => {
+                        return (
+                            <ListContent key={index} 
+                                    list={list}>
+                            </ListContent>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

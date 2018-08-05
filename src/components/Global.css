@@ -24,3 +24,9 @@
     text-decoration: none;
     color: black;
 }
+
+.masthead {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    padding: 3px;
+}

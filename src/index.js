@@ -34,7 +34,7 @@ ReactDOM.render(
       <Route path="/app" component={App} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/listpage/:id" component={ListPage} />
+      <Route path="/:id" component={ListPage} />
     </Router>
   </Provider>,
   document.getElementById("root")
