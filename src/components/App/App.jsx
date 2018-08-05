@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AddList from './Add/AddList';
 import Lists from './Lists.jsx';
 import './App.css';
-import './Global.css'
+import '../Global.css';
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
         <h1 className="app-header-item">Sign In/ Sign Up</h1>
       </div>
       <AddList/>
-      <h4 className="app-section-header">Most Popular Lists</h4>
+      <h4 className="app-section-header">Popular Lists</h4>
       <Lists />
       <hr />    
       <button className="primary-button"

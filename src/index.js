@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers';
 import { logUser } from './actions';
+import ListPage from './components/ListPage/ListPage';
 
 const store = createStore(reducer);
 
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/app" component={App} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/listpage" component={ListPage} />
     </Router>
   </Provider>,
   document.getElementById("root")

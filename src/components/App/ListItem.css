@@ -6,7 +6,12 @@
     padding: 1%;
     width: 90%;
     height: 160px;
-    border: 1px solid #deebf7;
+    border: 2px solid #deebf7;
+    box-shadow: 0px 0px #deebf7;
+}
+
+.list-item-outer-card:hover {
+    border: 2px solid #deebf7;
     box-shadow: 2px 2px #deebf7;
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { listsRef } from '../../../firebase';
 import { connect } from 'react-redux';
-import '../Global.css';
+import '../../Global.css';
 import './AddList.css';
 
 class AddList extends Component {
@@ -10,7 +10,7 @@ class AddList extends Component {
         this.state = {
             title: '',
             description: '',
-            image: ''
+            image: '' //TODO Add List Items
         }
         this.isOpen = false;
     }

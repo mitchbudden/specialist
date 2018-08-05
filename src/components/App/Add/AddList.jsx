@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ListInputGroup from './ListInputGroup';
-import '../Global.css';
+import '../../Global.css';
 import './AddList.css';
 
 class AddList extends Component {
