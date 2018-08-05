@@ -7,9 +7,9 @@ import './Lists.css';
 
 class Lists extends Component {
     componentDidMount() {
-        listsRef.on('value', snap => {
+        listsRef.on('value', data => {
             let lists = [];
-            snap.forEach(list => {
+            data.forEach(list => {
                 const { email, title, description, image } = list.val();
                 const serverKey = list.key;
                 lists.push({email, title, description, image, serverKey});

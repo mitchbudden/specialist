@@ -8,7 +8,7 @@ class ListItem extends Component {
         const { email, title, description, image } = this.props.list;
         return (
             <div>
-                <a className="card-link" href="listpage">
+                <a className="card-link" href={'listpage/' + this.props.list.title}>
                     <div className="list-item-outer-card">
                         <div className="list-item-card">
                             <h1 className="list-header">{title}</h1>
