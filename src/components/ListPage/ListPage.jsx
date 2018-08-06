@@ -13,10 +13,10 @@ class ListPage extends Component {
         listsRef.on('value', data => {
             let lists = [];
             data.forEach(list => {
-                const { email, title, description, image } = list.val();
+                const { email, title, description, image, listItems } = list.val();
                 const serverKey = list.key;
                 if (title === paramName) {
-                    lists.push({email, title, description, image, serverKey});
+                    lists.push({email, title, description, image, listItems, serverKey});
                 }
             })
             this.props.setLists(lists);
@@ -30,7 +30,7 @@ class ListPage extends Component {
                     <h1 className="masthead">
                         <a href="app"><i>Special List</i></a>
                     </h1>
-                    <h1 className="app-header-item">Sign In/ Sign Up</h1>
+                    <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
                 </div>
                 <div className="content-container">
                     {this.props.lists.map((list, index) => {

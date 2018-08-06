@@ -19,14 +19,14 @@
 .content-descript-profile {
     font-size: 22px;
     padding-bottom: 20px;
-    border-bottom: 1px solid grey;    
+    border-bottom: 1px solid #9ecae1;    
 }
 
 .content-sub-description {
     padding: 10px;
     font-size: 18px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid grey; 
+    padding-bottom: 35px;
+    border-bottom: 1px solid #9ecae1; 
 }
 
 .content-image-container {
@@ -38,4 +38,15 @@
     width: 25em;
     height: 25em;
     padding: 2em;
+}
+
+.content-links-list {
+    font-size: 18px;
+    padding: 10px;
+    margin: 5%;
+}
+
+.content-link {
+    font-size: 18px;
+    padding: 10px;
 }

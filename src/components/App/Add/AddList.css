@@ -27,6 +27,14 @@
     margin: 10px;
 }
 
+.list-category-final {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #9ecae1;    
+}
+
 .list-expansion {
     display: flex;
     flex-direction: row;    
@@ -40,4 +48,16 @@
     width: 25px;
     height: 25px;
     padding: 0px;
+}
+
+.list-item-input-group {
+    margin-right: 5px;
+    width: 100%;
+}
+
+.list-item-desc-or-link {
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
 }

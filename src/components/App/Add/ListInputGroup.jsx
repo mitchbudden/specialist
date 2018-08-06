@@ -10,7 +10,13 @@ class AddList extends Component {
         this.state = {
             title: '',
             description: '',
-            image: '' //TODO Add List Items
+            image: '',
+            listItems: {
+                'item-1': {
+                    description: '',
+                    link: ''
+                }
+            }
         }
         this.isOpen = false;
     }
@@ -20,9 +26,14 @@ class AddList extends Component {
             title: this.state.title,
             email: this.props.user.email,
             description: this.state.description,
-            image: this.state.image
+            image: this.state.image,
+            listItems: this.state.listItems
         }
         listsRef.push(newListObject);
+    }
+
+    addListItem() {
+        console.log(this.state.listItems);
     }
 
     render() {
@@ -46,7 +57,7 @@ class AddList extends Component {
                         onChange={event => this.setState({description: event.target.value})}
                     />
                 </div>
-                <div className="list-category">
+                <div className="list-category-final">
                     <h4 className="list-input-title">Thumbnail Image: </h4>
                     <input 
                         type="text"
@@ -55,6 +66,25 @@ class AddList extends Component {
                         onChange={event => this.setState({image: event.target.value})}
                     />
                 </div>
+                <div className="list-category">
+                    <h4 className="list-input-title">List Item: </h4>
+                    <div className="list-item-input-group">
+                        <input 
+                            type="text"
+                            placeholder="list description"
+                            className="list-item-desc-or-link"
+                            onChange={event => this.setState({listItems: {'item-1': {description: event.target.value}}})}
+                        />
+                        <input 
+                            type="text"
+                            placeholder="list link"
+                            className="list-item-desc-or-link"
+                            onChange={event => this.setState({listItems: {'item-1': {link: event.target.value}}})}
+                        />
+                    </div>
+                </div>
+                <button className="primary-button add-list-button"
+                            onClick={() => this.addListItem()}>&#43;</button>
                 <button className="primary-button"
                         type="button"
                         onClick={() => this.addList()}>Submit
