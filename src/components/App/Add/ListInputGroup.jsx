@@ -13,12 +13,12 @@ class AddList extends Component {
             image: '',
             listItems: {
                 'item-1': {
-                    description: '',
+                    itemDesc: '',
                     link: ''
                 }
             }
         }
-        this.isOpen = false;
+        this.ableToInput = true;
     }
 
     addList() {
@@ -30,6 +30,8 @@ class AddList extends Component {
             listItems: this.state.listItems
         }
         listsRef.push(newListObject);
+        this.ableToInput = false;
+        this.forceUpdate();
     }
 
     addListItem() {
@@ -37,60 +39,60 @@ class AddList extends Component {
     }
 
     render() {
-        return (
-            <div className="list-input">
-                <div className="list-category">
-                    <h4 className="list-input-title">Title: </h4>
-                    <input 
-                        type="text"
-                        placeholder="List Title"
-                        className="list-input-field"
-                        onChange={event => this.setState({title: event.target.value})}
-                    />
-                </div>
-                <div className="list-category">
-                    <h4 className="list-input-title">Description: </h4>                    
-                    <input 
-                        type="text"
-                        placeholder="List description"
-                        className="list-input-field"
-                        onChange={event => this.setState({description: event.target.value})}
-                    />
-                </div>
-                <div className="list-category-final">
-                    <h4 className="list-input-title">Thumbnail Image: </h4>
-                    <input 
-                        type="text"
-                        placeholder="thumbnail image"
-                        className="list-input-field"
-                        onChange={event => this.setState({image: event.target.value})}
-                    />
-                </div>
-                <div className="list-category">
-                    <h4 className="list-input-title">List Item: </h4>
-                    <div className="list-item-input-group">
+        if (this.ableToInput) {
+            return (
+                <div className="list-input">
+                    <div className="list-category">
+                        <h4 className="list-input-title">Title: </h4>
                         <input 
                             type="text"
-                            placeholder="list description"
-                            className="list-item-desc-or-link"
-                            onChange={event => this.setState({listItems: {'item-1': {description: event.target.value}}})}
-                        />
-                        <input 
-                            type="text"
-                            placeholder="list link"
-                            className="list-item-desc-or-link"
-                            onChange={event => this.setState({listItems: {'item-1': {link: event.target.value}}})}
+                            placeholder="List Title"
+                            className="list-input-field"
+                            onChange={event => this.setState({title: event.target.value})}
                         />
                     </div>
+                    <div className="list-category">
+                        <h4 className="list-input-title">Description: </h4>                    
+                        <input 
+                            type="text"
+                            placeholder="List description"
+                            className="list-input-field"
+                            onChange={event => this.setState({description: event.target.value})}
+                        />
+                    </div>
+                    <div className="list-category-final">
+                        <h4 className="list-input-title">Thumbnail Image: </h4>
+                        <input 
+                            type="text"
+                            placeholder="thumbnail image"
+                            className="list-input-field"
+                            onChange={event => this.setState({image: event.target.value})}
+                        />
+                    </div>
+                    <div className="list-category">
+                        <h4 className="list-input-title">List Item: </h4>
+                        <div className="list-item-input-group">
+                            <input 
+                                type="text"
+                                placeholder="list description"
+                                className="list-item-desc-or-link"
+                                onChange={event => this.setState({listItems: {'item-1': {itemDesc: event.target.value}}})}
+                            />
+                        </div>
+                    </div>
+                    <button className="primary-button add-list-button"
+                                onClick={() => this.addListItem()}>&#43;</button>
+                    <button className="primary-button"
+                            type="button"
+                            onClick={() => this.addList()}>Submit
+                    </button>
                 </div>
-                <button className="primary-button add-list-button"
-                            onClick={() => this.addListItem()}>&#43;</button>
-                <button className="primary-button"
-                        type="button"
-                        onClick={() => this.addList()}>Submit
-                </button>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
     }
 }
 

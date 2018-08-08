@@ -11,8 +11,8 @@ class ListLink extends Component {
         <ul className="content-links-list">
             {linkItems.map((item, index) => {
                 return (
-                    <li className="content-link">
-                        <a href={item.link}>{item.description}</a>
+                    <li className="content-link" key={index}>
+                        <a href={item.link}>{item.itemDesc}</a>
                     </li>
                 )
             })}
