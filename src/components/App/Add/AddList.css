@@ -55,6 +55,11 @@
     width: 100%;
 }
 
+.each-list-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .list-item-desc-or-link {
     flex-direction: column;
     width: 100%;

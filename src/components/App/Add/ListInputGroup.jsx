@@ -10,32 +10,46 @@ class AddList extends Component {
         this.state = {
             title: '',
             description: '',
-            image: '',
-            listItems: {
-                'item-1': {
-                    itemDesc: '',
-                    link: ''
-                }
-            }
+            image: ''
         }
+        this.itemDescriptions = [""];
+        this.links = [""];      
         this.ableToInput = true;
+        this.newListItems = [];
     }
 
     addList() {
+        let newListItemArray = [];
+        for (let i = 0; i < this.itemDescriptions.length; i++) {
+            let itemValues = {
+                itemDesc: this.itemDescriptions[i],
+                link: this.links[i]
+            };
+            newListItemArray.push(itemValues);
+        }
         const newListObject = {
             title: this.state.title,
             email: this.props.user.email,
             description: this.state.description,
             image: this.state.image,
-            listItems: this.state.listItems
+            listItems: newListItemArray
         }
         listsRef.push(newListObject);
         this.ableToInput = false;
-        this.forceUpdate();
+        this.forceUpdate();            
     }
 
     addListItem() {
-        console.log(this.state.listItems);
+        this.itemDescriptions.push("item");
+        this.forceUpdate();        
+    }
+
+    handleNewListItem(input, index, type) {
+        if (type === "description") {
+            this.itemDescriptions[index] = input;
+        } else if (type === "link") {
+            this.links[index] = input;            
+        }
     }
 
     render() {
@@ -70,18 +84,30 @@ class AddList extends Component {
                         />
                     </div>
                     <div className="list-category">
-                        <h4 className="list-input-title">List Item: </h4>
-                        <div className="list-item-input-group">
-                            <input 
-                                type="text"
-                                placeholder="list description"
-                                className="list-item-desc-or-link"
-                                onChange={event => this.setState({listItems: {'item-1': {itemDesc: event.target.value}}})}
-                            />
-                        </div>
-                    </div>
-                    <button className="primary-button add-list-button"
+                        <h4 className="list-input-title">List Items: </h4>
+                        <button className="primary-button add-list-button"
                                 onClick={() => this.addListItem()}>&#43;</button>
+                        <div className="each-list-group">
+                            {this.itemDescriptions.map((item, index) => (
+                                <div>
+                                    <h4>{index + 1}</h4>
+                                    <div className="list-item-input-group">
+                                        <input 
+                                            type="text"
+                                            placeholder="list description"
+                                            className="list-item-desc-or-link"
+                                            onChange={event => this.handleNewListItem(event.target.value, index, 'description')}
+                                        />
+                                        <input 
+                                            type="text"
+                                            placeholder="list link"
+                                            className="list-item-desc-or-link"
+                                            onChange={event => this.handleNewListItem(event.target.value, index, 'link')}                                        />
+                                    </div>
+                                </div>
+                            ))}    
+                        </div>        
+                    </div>
                     <button className="primary-button"
                             type="button"
                             onClick={() => this.addList()}>Submit
