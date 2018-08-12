@@ -10,6 +10,7 @@ class App extends Component {
 
   signOut() {
     firebaseApp.auth().signOut();
+    this.forceUpdate();
   }
 
   render() {
@@ -20,7 +21,10 @@ class App extends Component {
         <input type="text" 
               className="app-header-item"
               placeholder="Find a List"/>
-        <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
+        {this.props.user.email ?
+        <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
+        : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
+        }
       </div>
       <AddList/>
       <h4 className="app-section-header">Popular Lists</h4>
@@ -35,7 +39,8 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  const { user } = state;
+  return { user };
 }
 
 export default connect(mapStateToProps, null)(App);

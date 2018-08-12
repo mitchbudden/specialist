@@ -12,10 +12,12 @@
 
 .app-header-item {
     font-weight: 500;
-    font-size: 22px;
+    font-size: 16px;
     color: black;  
     margin: 10px;
     padding: 10px;
+    height: 30px;
+    width: 33%;
 }
 
 .app-section-header {
@@ -25,4 +27,20 @@
 
 .sign-out {
     font-family: 'Roboto', sans-serif;    
+}
+
+.welcome-message {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;  
+}
+
+@media (max-width: 450px), (max-height: 350px) { 
+    .welcome-message {
+        margin: 5px;
+    }
+
+    .app-header-item {
+        margin: 5px;
+        padding: 5px;
+    }
 }

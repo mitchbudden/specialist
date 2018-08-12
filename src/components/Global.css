@@ -27,6 +27,19 @@
 
 .masthead {
     font-family: 'Lobster', cursive;
-    font-size: 36px;
+    font-size: 32px;
     padding: 3px;
+    margin-top: 0;
+}
+
+.spcl-warning {
+    color: red;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+@media (max-width: 450px), (max-height: 350px) { 
+    .masthead {
+        font-size: 24px;    
+    }
 }

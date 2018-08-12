@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router';
+import { browserHistory, Link } from "react-router";
 import { firebaseApp } from '../../firebase';
 import './Auth.css';
 
@@ -19,6 +19,7 @@ class SignIn extends Component {
             .catch(error => {
                 this.setState({error});
             });
+        browserHistory.push('/app');
     }
 
     render() {

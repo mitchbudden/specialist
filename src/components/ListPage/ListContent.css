@@ -50,3 +50,10 @@
     font-size: 18px;
     padding: 10px;
 }
+
+@media (max-width: 450px), (max-height: 350px) { 
+    .content-image {
+        width: 15em;
+        height: 15em;
+    }
+}

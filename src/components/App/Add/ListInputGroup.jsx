@@ -58,7 +58,7 @@ class AddList extends Component {
                 <div className="list-input">
                     <div className="list-category">
                         <h4 className="list-input-title">Title: </h4>
-                        <input 
+                        <textarea 
                             type="text"
                             placeholder="List Title"
                             className="list-input-field"
@@ -67,7 +67,7 @@ class AddList extends Component {
                     </div>
                     <div className="list-category">
                         <h4 className="list-input-title">Description: </h4>                    
-                        <input 
+                        <textarea 
                             type="text"
                             placeholder="List description"
                             className="list-input-field"
@@ -76,29 +76,29 @@ class AddList extends Component {
                     </div>
                     <div className="list-category-final">
                         <h4 className="list-input-title">Thumbnail Image: </h4>
-                        <input 
+                        <textarea 
                             type="text"
                             placeholder="thumbnail image"
                             className="list-input-field"
                             onChange={event => this.setState({image: event.target.value})}
                         />
                     </div>
-                    <div className="list-category">
-                        <h4 className="list-input-title">List Items: </h4>
-                        <button className="primary-button add-list-button"
-                                onClick={() => this.addListItem()}>&#43;</button>
+                    <div className="list-category-group">
+                        <h4 className="list-input-title">List Items <button className="primary-button add-list-button"
+                                onClick={() => this.addListItem()}>&#43;</button></h4>
+                        
                         <div className="each-list-group">
                             {this.itemDescriptions.map((item, index) => (
-                                <div>
-                                    <h4>{index + 1}</h4>
+                                <div key={index}>
+                                    <h4 className="item-number">{index + 1}</h4>
                                     <div className="list-item-input-group">
-                                        <input 
+                                        <textarea 
                                             type="text"
                                             placeholder="list description"
                                             className="list-item-desc-or-link"
                                             onChange={event => this.handleNewListItem(event.target.value, index, 'description')}
                                         />
-                                        <input 
+                                        <textarea 
                                             type="text"
                                             placeholder="list link"
                                             className="list-item-desc-or-link"
