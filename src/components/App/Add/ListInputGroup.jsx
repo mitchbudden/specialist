@@ -75,10 +75,10 @@ class AddList extends Component {
                         />
                     </div>
                     <div className="list-category-final">
-                        <h4 className="list-input-title">Thumbnail Image: </h4>
+                        <h4 className="list-input-title">Link to Thumbnail Image: </h4>
                         <textarea 
                             type="text"
-                            placeholder="thumbnail image"
+                            placeholder="thumbnail image - must be a link"
                             className="list-input-field"
                             onChange={event => this.setState({image: event.target.value})}
                         />
