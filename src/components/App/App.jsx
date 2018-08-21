@@ -5,12 +5,20 @@ import AddList from './Add/AddList';
 import Lists from './Lists.jsx';
 import './App.css';
 import '../Global.css';
+import { browserHistory } from "react-router";
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+        filterKey: ''
+    }
+  }
+
   signOut() {
     firebaseApp.auth().signOut();
-    this.forceUpdate();
+    browserHistory.push('/signin');
   }
 
   render() {
@@ -20,20 +28,21 @@ class App extends Component {
         <h1 className="masthead">Special List</h1>
         <input type="text" 
               className="app-header-item"
-              placeholder="Find a List"/>
+              placeholder="Find a List"
+              onChange={event => this.setState({filterKey: event.target.value})}/>
         {this.props.user.email ?
         <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
         : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
         }
       </div>
-      <AddList/>
-      <h4 className="app-section-header">Popular Lists</h4>
-      <Lists />
-      <hr />    
-      <button className="primary-button"
-              onClick={() => this.signOut()}>
-      Sign Out  
-      </button>
+      <AddList />
+      <h4 className="app-section-header">Lists</h4>
+      <Lists filterKey={this.state.filterKey}/>
+      <hr /> 
+      {this.props.user.email ? <button className="primary-button"
+              onClick={() => this.signOut()}> Sign Out</button>
+      : <div></div>
+      }
     </div>);
   }
 }
