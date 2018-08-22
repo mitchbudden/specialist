@@ -52,9 +52,32 @@
 }
 
 @media (max-width: 450px), (max-height: 350px) { 
+    .content-image-container {
+        margin: 5px;
+    }
     .content-image {
-        width: 15em;
-        height: 15em;
-        margin-top: 8em;
+        width: 25em;
+        height: 25em;
+        margin-left: 20%;
+    }
+
+    .content-outer-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 1%;
+    }
+
+    .content-overview {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .content-links-list {
+        word-wrap: break-word;
+        font-size: 16px;
+        padding: 10px;
+        margin: 5%;
     }
 }
