@@ -20,6 +20,16 @@
     width: 33%;
 }
 
+.app-header-input {
+    font-weight: 500;
+    font-size: 16px;
+    color: black;  
+    margin: 10px;
+    padding: 10px;
+    height: 30px;
+    width: 63%;
+}
+
 .app-section-header {
     font-family: 'Roboto', sans-serif;
     margin: 10px; 

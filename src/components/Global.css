@@ -38,6 +38,12 @@
     margin-left: 10px;
 }
 
+.add-list-button {
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
+
 @media (max-width: 450px), (max-height: 350px) { 
     .masthead {
         font-size: 24px;    

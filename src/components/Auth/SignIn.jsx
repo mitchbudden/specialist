@@ -19,7 +19,7 @@ class SignIn extends Component {
             .catch(error => {
                 this.setState({error});
             });
-        browserHistory.push('/app');
+        browserHistory.push('/');
     }
 
     render() {

@@ -20,7 +20,7 @@ class SignUp extends Component {
             .catch(error => {
                 this.setState({error});
             });
-        browserHistory.push('/app');    
+        browserHistory.push('/');    
     }
 
     render() {

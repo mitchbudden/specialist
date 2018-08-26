@@ -50,12 +50,6 @@
     font-family: 'Roboto', sans-serif;    
 }
 
-.add-list-button {
-    width: 25px;
-    height: 25px;
-    padding: 0px;
-}
-
 .list-item-input-group {
     margin-right: 5px;
     width: 100%;

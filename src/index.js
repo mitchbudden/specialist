@@ -14,6 +14,8 @@ import ListPage from './components/ListPage/ListPage';
 const store = createStore(reducer);
 
 firebaseApp.auth().onAuthStateChanged(user => {
+  console.log(this.state);
+  console.log(this.props);
   if (user) {
     const { email } = user;
     store.dispatch(logUser(email));
@@ -23,7 +25,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
 ReactDOM.render(
   <Provider store={store}>
     <Router path="/" history={browserHistory}>
-      <Route path="/app" component={App} />
+      <Route path="/" component={App} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/:id" component={ListPage} />

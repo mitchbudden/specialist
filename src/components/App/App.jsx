@@ -12,7 +12,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-        filterKey: ''
+        filterKey: '',
+        filterEntered: false
     }
   }
 
@@ -26,10 +27,15 @@ class App extends Component {
     <div style={{margin: '5px'}}>
       <div className="app-header">
         <h1 className="masthead">Special List</h1>
-        <input type="text" 
-              className="app-header-item"
-              placeholder="Find a List"
-              onChange={event => this.setState({filterKey: event.target.value})}/>
+        <div>
+          <input type="text" 
+                className="app-header-input"
+                placeholder="Find a List"
+                onChange={event => this.setState({filterKey: event.target.value})}/>
+          <button className="primary-button add-list-button"
+                  onClick={event => this.setState({filterEntered: true})}>&#43;
+          </button>      
+        </div>
         {this.props.user.email ?
         <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
         : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
@@ -37,7 +43,7 @@ class App extends Component {
       </div>
       <AddList />
       <h4 className="app-section-header">Lists</h4>
-      <Lists filterKey={this.state.filterKey}/>
+      <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered}/>
       <hr /> 
       {this.props.user.email ? <button className="primary-button"
               onClick={() => this.signOut()}> Sign Out</button>
