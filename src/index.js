@@ -10,12 +10,18 @@ import { createStore } from 'redux';
 import reducer from './reducers';
 import { logUser } from './actions';
 import ListPage from './components/ListPage/ListPage';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckSquare, faCoffee, faUmbrellaBeach,
+      faSwimmer, faSuitcase, faCookieBite, faMusic,
+      faBook, faPodcast, faLaptop, faSnowflake } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCheckSquare, faCoffee, faUmbrellaBeach, faSwimmer,
+            faSuitcase, faCookieBite, faMusic, faBook, faPodcast,
+            faLaptop, faSnowflake);
 
 const store = createStore(reducer);
 
 firebaseApp.auth().onAuthStateChanged(user => {
-  console.log(this.state);
-  console.log(this.props);
   if (user) {
     const { email } = user;
     store.dispatch(logUser(email));

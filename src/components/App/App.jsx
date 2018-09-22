@@ -26,7 +26,7 @@ class App extends Component {
     return (
     <div style={{margin: '5px'}}>
       <div className="app-header">
-        <h1 className="masthead">Special List</h1>
+        <h1 className="masthead">Specialisting</h1>
         <div>
           <input type="text" 
                 className="app-header-input"

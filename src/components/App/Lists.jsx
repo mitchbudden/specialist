@@ -17,9 +17,9 @@ class Lists extends Component {
         listsRef.on('value', data => {
             let lists = [];
             data.forEach(list => {
-                const { email, title, description, image, tags } = list.val();
+                const { email, title, description, icon, tags } = list.val();
                 const serverKey = list.key;
-                lists.push({email, title, description, image, serverKey, tags});
+                lists.push({email, title, description, icon, serverKey, tags});
             })
             this.props.setLists(lists);
             this.setState({shownLists: lists});
@@ -27,7 +27,7 @@ class Lists extends Component {
         })
     }
 
-    componentDidUpdate() {
+    componentWillMount() {
         var filteredLists = [];
         if (this.props.filterEntered === true){
             if (this.props.filterKey.length > 0) {

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ListItem.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ListItem extends Component {
 
     render() {
-        const { email, title, description, image } = this.props.list;
+        const { email, title, description, icon } = this.props.list;
         return (
             <div>
                 <a className="card-link" href={this.props.list.title}>
@@ -15,9 +16,13 @@ class ListItem extends Component {
                             <h2 className="list-description">submitted by {email}</h2>
                             <h2 className="list-description">{description}</h2>
                         </div>
-                        <img className="list-item-image"
-                            src={image}
-                            alt="thumbnail"></img> 
+                        {icon.map((eachIcon, index) => {
+                            return (
+                                <FontAwesomeIcon icon={eachIcon}
+                                size="6x" 
+                                key={index}/>
+                            )
+                        })}
                     </div>
                 </a>
             </div>

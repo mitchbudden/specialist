@@ -3,6 +3,7 @@ import { listsRef } from '../../../firebase';
 import { connect } from 'react-redux';
 import '../../Global.css';
 import './AddList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class AddList extends Component {
     constructor(props){
@@ -10,8 +11,8 @@ class AddList extends Component {
         this.state = {
             title: '',
             description: '',
-            image: ''
         }
+        this.icons = [];
         this.itemDescriptions = [""];
         this.links = [""];      
         this.ableToInput = true;
@@ -31,7 +32,7 @@ class AddList extends Component {
             title: this.state.title,
             email: this.props.user.email,
             description: this.state.description,
-            image: this.state.image,
+            icon: this.icons,
             listItems: newListItemArray
         }
         listsRef.push(newListObject);
@@ -50,6 +51,10 @@ class AddList extends Component {
         } else if (type === "link") {
             this.links[index] = input;            
         }
+    }
+
+    addIcon(iconName) {
+        this.icons.push(iconName);
     }
 
     render() {
@@ -75,13 +80,40 @@ class AddList extends Component {
                         />
                     </div>
                     <div className="list-category-final">
-                        <h4 className="list-input-title">Link to Thumbnail Image: </h4>
-                        <textarea 
-                            type="text"
-                            placeholder="thumbnail image - must be a link"
-                            className="list-input-field"
-                            onChange={event => this.setState({image: event.target.value})}
-                        />
+                        <h4 className="list-input-title">Select Icon Tags: 
+                        </h4>
+                        <div className="icon-group">
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("coffee")}>
+                                <FontAwesomeIcon icon="coffee" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("umbrella-beach")}>
+                                <FontAwesomeIcon icon="umbrella-beach" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("swimmer")}>
+                                <FontAwesomeIcon icon="swimmer" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("suitcase")}>
+                                <FontAwesomeIcon icon="suitcase" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("cookie-bite")}>
+                                <FontAwesomeIcon icon="cookie-bite" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("music")}>
+                                <FontAwesomeIcon icon="music" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("book")}>
+                                <FontAwesomeIcon icon="book" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("podcast")}>
+                                <FontAwesomeIcon icon="podcast" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("laptop")}>
+                                <FontAwesomeIcon icon="laptop" /></button>
+                            <button className="icon-button"
+                                    onClick={() => this.addIcon("snowflake")}>
+                                <FontAwesomeIcon icon="snowflake" /></button>
+                        </div>
                     </div>
                     <div className="list-category-group">
                         <h4 className="list-input-title">List Items <button className="primary-button add-list-button"

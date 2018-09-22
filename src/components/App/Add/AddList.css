@@ -70,3 +70,26 @@
 .item-number {
     text-align: center;
 }
+
+.icon-group {
+    border: 1px solid grey;
+    box-shadow: 2px 2px #9ecae1;
+    margin: 2%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon-button {
+    margin: 2px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.icon-button:hover {
+    background-color: #9ecae1;    
+}
