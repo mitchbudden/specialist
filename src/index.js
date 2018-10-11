@@ -13,11 +13,13 @@ import ListPage from './components/ListPage/ListPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheckSquare, faCoffee, faUmbrellaBeach,
       faSwimmer, faSuitcase, faCookieBite, faMusic,
-      faBook, faPodcast, faLaptop, faSnowflake } from '@fortawesome/free-solid-svg-icons';
+      faBook, faPodcast, faLaptop, faSnowflake,
+      faTshirt, faGift, faBicycle, faDumbbell, faFilter } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faCheckSquare, faCoffee, faUmbrellaBeach, faSwimmer,
             faSuitcase, faCookieBite, faMusic, faBook, faPodcast,
-            faLaptop, faSnowflake);
+            faLaptop, faSnowflake, faTshirt, faGift, faBicycle, faDumbbell,
+            faFilter);
 
 const store = createStore(reducer);
 

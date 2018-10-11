@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import '../../Global.css';
 import './AddList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { iconList } from '../../../constants';
 
 class AddList extends Component {
     constructor(props){
@@ -12,11 +13,13 @@ class AddList extends Component {
             title: '',
             description: '',
         }
-        this.icons = [];
+        this.selectedIcons = [];
         this.itemDescriptions = [""];
         this.links = [""];      
         this.ableToInput = true;
         this.newListItems = [];
+        // TODO move this to a constant
+        this.icons = iconList
     }
 
     addList() {
@@ -32,7 +35,7 @@ class AddList extends Component {
             title: this.state.title,
             email: this.props.user.email,
             description: this.state.description,
-            icon: this.icons,
+            icon: this.selectedIcons,
             listItems: newListItemArray
         }
         listsRef.push(newListObject);
@@ -53,8 +56,23 @@ class AddList extends Component {
         }
     }
 
-    addIcon(iconName) {
-        this.icons.push(iconName);
+    addIcon(icon) {
+        let value = Object.values(icon)[0].name;
+
+        if (this.selectedIcons.includes(value)) {
+            this.selectedIcons = this.selectedIcons.filter(item => {
+                return item !== value;
+            });
+        } else {
+            this.selectedIcons.push(value);
+        }
+
+        this.icons.forEach(item => {
+            if (item.name === value) {
+                item.selected = item.selected === true ? false : true;
+            }
+        });
+        this.forceUpdate();
     }
 
     render() {
@@ -83,40 +101,18 @@ class AddList extends Component {
                         <h4 className="list-input-title">Select Icon Tags: 
                         </h4>
                         <div className="icon-group">
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("coffee")}>
-                                <FontAwesomeIcon icon="coffee" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("umbrella-beach")}>
-                                <FontAwesomeIcon icon="umbrella-beach" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("swimmer")}>
-                                <FontAwesomeIcon icon="swimmer" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("suitcase")}>
-                                <FontAwesomeIcon icon="suitcase" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("cookie-bite")}>
-                                <FontAwesomeIcon icon="cookie-bite" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("music")}>
-                                <FontAwesomeIcon icon="music" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("book")}>
-                                <FontAwesomeIcon icon="book" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("podcast")}>
-                                <FontAwesomeIcon icon="podcast" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("laptop")}>
-                                <FontAwesomeIcon icon="laptop" /></button>
-                            <button className="icon-button"
-                                    onClick={() => this.addIcon("snowflake")}>
-                                <FontAwesomeIcon icon="snowflake" /></button>
+                            {this.icons.map((icon, index) => {
+                                return (
+                                    <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
+                                        onClick={() => this.addIcon({icon})}
+                                        key={index}>
+                                        <FontAwesomeIcon size="2x" icon={icon.name}/></button>
+                                )
+                            })}
                         </div>
                     </div>
                     <div className="list-category-group">
-                        <h4 className="list-input-title">List Items <button className="primary-button add-list-button"
+                        <h4 className="list-input-title">Add List Items: <button className="primary-button add-list-button"
                                 onClick={() => this.addListItem()}>&#43;</button></h4>
                         
                         <div className="each-list-group">
@@ -144,6 +140,8 @@ class AddList extends Component {
                             type="button"
                             onClick={() => this.addList()}>Submit
                     </button>
+                    <div className="list-category-final">
+                    </div>
                 </div>
             )
         } else {

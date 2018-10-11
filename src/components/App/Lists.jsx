@@ -17,9 +17,9 @@ class Lists extends Component {
         listsRef.on('value', data => {
             let lists = [];
             data.forEach(list => {
-                const { email, title, description, icon, tags } = list.val();
+                const { email, title, description, icon } = list.val();
                 const serverKey = list.key;
-                lists.push({email, title, description, icon, serverKey, tags});
+                lists.push({email, title, description, icon, serverKey});
             })
             this.props.setLists(lists);
             this.setState({shownLists: lists});
@@ -32,7 +32,7 @@ class Lists extends Component {
         if (this.props.filterEntered === true){
             if (this.props.filterKey.length > 0) {
                 this.props.lists.forEach(list => {
-                    if (list.tags.indexOf(this.props.filterKey) > -1) {
+                    if (list.icon.indexOf(this.props.filterKey) > -1) {
                         filteredLists.push(list);
                     }
                 });

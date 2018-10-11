@@ -6,6 +6,8 @@ import Lists from './Lists.jsx';
 import './App.css';
 import '../Global.css';
 import { browserHistory } from "react-router";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { iconList } from '../../constants';
 
 class App extends Component {
 
@@ -15,6 +17,8 @@ class App extends Component {
         filterKey: '',
         filterEntered: false
     }
+    this.icons = iconList    
+    this.showIcons = false;
   }
 
   signOut() {
@@ -22,27 +26,41 @@ class App extends Component {
     browserHistory.push('/signin');
   }
 
+  filterLists() {
+    this.showIcons = this.showIcons ? false : true;
+    this.forceUpdate();    
+  }
+
   render() {
     return (
     <div style={{margin: '5px'}}>
       <div className="app-header">
         <h1 className="masthead">Specialisting</h1>
-        <div>
-          <input type="text" 
-                className="app-header-input"
-                placeholder="Find a List"
-                onChange={event => this.setState({filterKey: event.target.value})}/>
-          <button className="primary-button add-list-button"
-                  onClick={event => this.setState({filterEntered: true})}>&#43;
-          </button>      
-        </div>
         {this.props.user.email ?
         <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
         : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
         }
       </div>
       <AddList />
-      <h4 className="app-section-header">Lists</h4>
+      <h4 className="app-section-header">Filter Lists
+        <button className="primary-button add-list-button"
+                onClick={() => this.filterLists()}>
+                <FontAwesomeIcon size="sm" icon="filter" />
+        </button>
+      </h4>
+      { this.showIcons ?
+      <div className="icon-group">
+          {this.icons.map((icon, index) => {
+              return (
+                  <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
+                      onClick={() => this.addIcon({icon})}
+                      key={index}>
+                      <FontAwesomeIcon size="2x" icon={icon.name}/></button>
+              )
+          })}
+      </div>
+      : <div></div>
+      }
       <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered}/>
       <hr /> 
       {this.props.user.email ? <button className="primary-button"
