@@ -11,7 +11,7 @@
 
 .list-input-field {
     width: 100%;
-    height: 2em;
+    height: 4em;
     margin-left: 10px;
 }
 
@@ -63,6 +63,7 @@
 
 .list-item-desc-or-link {
     flex-direction: column;
+    height: 2em;
     width: 100%;
     margin: 5px;
     padding: 5px;
@@ -95,4 +96,14 @@
 
 .selected-icon {
     background-color: #9ecae1;
+}
+
+@media (max-width: 450px), (max-height: 350px) { 
+    .list-input {
+        width: 100%;
+        margin: 0
+    }
+    .list-category-final {
+        margin: 0px;
+    }
 }
