@@ -13,6 +13,9 @@ class AddList extends Component {
     openInput() {
         this.isOpen = this.isOpen === false ? true : false;
         this.forceUpdate();
+        if (document.getElementById("open-input-button")) {
+            document.getElementById("open-input-button").blur();
+        }
     }
 
     render() {
@@ -37,7 +40,8 @@ class AddList extends Component {
                     <h4>Add a List</h4>
                     {this.props.user.email ? 
                     <button className="primary-button add-list-button"
-                            onClick={() => this.openInput()}>&#43;</button>
+                            onClick={() => this.openInput()}
+                            id="open-input-button">&#43;</button>
                     : <h4 className="spcl-warning"><i>Log in or sign up to add a list</i></h4>        
                     }
                 </div>

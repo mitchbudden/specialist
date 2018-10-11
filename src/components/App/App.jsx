@@ -28,7 +28,10 @@ class App extends Component {
 
   filterLists() {
     this.showIcons = this.showIcons ? false : true;
-    this.forceUpdate();    
+    this.forceUpdate();
+    if (document.getElementById("filter-button")) {
+      document.getElementById("filter-button").blur();
+    }
   }
 
   render() {
@@ -44,7 +47,8 @@ class App extends Component {
       <AddList />
       <h4 className="app-section-header">Filter Lists
         <button className="primary-button add-list-button"
-                onClick={() => this.filterLists()}>
+                onClick={() => this.filterLists()}
+                id="filter-button">
                 <FontAwesomeIcon size="sm" icon="filter" />
         </button>
       </h4>

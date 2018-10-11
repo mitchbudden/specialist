@@ -9,7 +9,7 @@
 .content-overview {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
 }
 
 .content-descript-title {
@@ -29,17 +29,6 @@
     border-bottom: 1px solid #9ecae1; 
 }
 
-.content-image-container {
-    width: 50%;
-    margin: 2%;
-}
-
-.content-image {
-    width: 25em;
-    height: 25em;
-    padding: 2em;
-}
-
 .content-links-list {
     font-size: 18px;
     padding: 10px;
@@ -52,14 +41,6 @@
 }
 
 @media (max-width: 450px), (max-height: 350px) { 
-    .content-image-container {
-        margin: 5px;
-    }
-    .content-image {
-        width: 25em;
-        height: 25em;
-        margin-left: 20%;
-    }
 
     .content-outer-container {
         width: 80%;

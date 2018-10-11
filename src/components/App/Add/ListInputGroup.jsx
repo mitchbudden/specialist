@@ -45,7 +45,10 @@ class AddList extends Component {
 
     addListItem() {
         this.itemDescriptions.push("item");
-        this.forceUpdate();        
+        this.forceUpdate();  
+        if (document.getElementById("add-list-input-group-button")) {
+            document.getElementById("add-list-input-group-button").blur();
+        }    
     }
 
     handleNewListItem(input, index, type) {
@@ -58,6 +61,7 @@ class AddList extends Component {
 
     addIcon(icon) {
         let value = Object.values(icon)[0].name;
+        let valueId = value + "-input-button";
 
         if (this.selectedIcons.includes(value)) {
             this.selectedIcons = this.selectedIcons.filter(item => {
@@ -73,6 +77,9 @@ class AddList extends Component {
             }
         });
         this.forceUpdate();
+        if (document.getElementById(valueId)) {
+            document.getElementById(valueId).blur();
+        }
     }
 
     render() {
@@ -105,15 +112,18 @@ class AddList extends Component {
                                 return (
                                     <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
                                         onClick={() => this.addIcon({icon})}
-                                        key={index}>
+                                        key={index}
+                                        id={icon.name + "-input-button"}>
                                         <FontAwesomeIcon size="2x" icon={icon.name}/></button>
                                 )
                             })}
                         </div>
                     </div>
                     <div className="list-category-group">
-                        <h4 className="list-input-title">Add List Items: <button className="primary-button add-list-button"
-                                onClick={() => this.addListItem()}>&#43;</button></h4>
+                        <h4 className="list-input-title">Add List Items: 
+                            <button className="primary-button add-list-button"
+                                    id="add-list-input-group-button"
+                                    onClick={() => this.addListItem()}>&#43;</button></h4>
                         
                         <div className="each-list-group">
                             {this.itemDescriptions.map((item, index) => (
