@@ -14,10 +14,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-        filterKey: '',
-        filterEntered: false
+      filterKey: '',
+      filterEntered: false
     }
-    this.icons = iconList    
+    this.icons = iconList;
     this.showIcons = false;
   }
 
@@ -33,6 +33,26 @@ class App extends Component {
       document.getElementById("filter-button").blur();
     }
   }
+
+  addIcon(icon) {
+    let value = Object.values(icon)[0].name;
+    let valueId = value + "-filter-button";
+
+    // TODO wtf why doesn't this work?
+    this.setState({filterKey: value});
+    this.setState({filterEntered: true});
+
+    this.icons.forEach(item => {
+      if (item.name === value) {
+          item.selected = item.selected === true ? false : true;
+      }
+    });
+
+    if (document.getElementById(valueId)) {
+      document.getElementById(valueId).blur();
+    }
+    this.forceUpdate();
+}
 
   render() {
     return (
@@ -58,7 +78,8 @@ class App extends Component {
               return (
                   <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
                       onClick={() => this.addIcon({icon})}
-                      key={index}>
+                      key={index}
+                      id={icon.name + "-filter-button"}>
                       <FontAwesomeIcon size="2x" icon={icon.name}/></button>
               )
           })}

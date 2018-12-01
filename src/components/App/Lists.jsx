@@ -14,6 +14,7 @@ class Lists extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         listsRef.on('value', data => {
             let lists = [];
             data.forEach(list => {

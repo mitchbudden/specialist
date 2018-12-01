@@ -18,7 +18,6 @@ class AddList extends Component {
         this.links = [""];      
         this.ableToInput = true;
         this.newListItems = [];
-        // TODO move this to a constant
         this.icons = iconList
     }
 
