@@ -28,7 +28,7 @@ class ListPage extends Component {
             <div>
                 <div className="app-header">
                     <h1 className="masthead">
-                        <a href="/"><i>Specialisting</i></a>
+                        <a href="/"><i>Blue Links</i></a>
                     </h1>
                     <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
                 </div>

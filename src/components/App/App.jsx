@@ -58,7 +58,7 @@ class App extends Component {
     return (
     <div style={{margin: '5px'}}>
       <div className="app-header">
-        <h1 className="masthead">Specialisting</h1>
+        <h1 className="masthead">Blue Links</h1>
         {this.props.user.email ?
         <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
         : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
