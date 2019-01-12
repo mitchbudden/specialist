@@ -59,19 +59,18 @@ class App extends Component {
     <div style={{margin: '5px'}}>
       <div className="app-header">
         <h1 className="masthead">Blue Links</h1>
-        {this.props.user.email ?
-        <h1 className="welcome-message">Welcome {this.props.user.email}</h1>
-        : <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
-        }
       </div>
-      <AddList />
-      <h4 className="app-section-header">Filter Lists
-        <button className="primary-button add-list-button"
-                onClick={() => this.filterLists()}
-                id="filter-button">
-                <FontAwesomeIcon size="sm" icon="filter" />
-        </button>
-      </h4>
+      <div className="list-option-headers">
+        <AddList />
+        <div className="list-expansion">
+          <h1 className="list-option-title">Find Out What the Experts Use</h1>
+          <button className="primary-button app-section-header list-option-title"
+                  onClick={() => this.filterLists()}
+                  id="filter-button">Filter Lists
+                  <FontAwesomeIcon size="sm" icon="filter" />
+          </button>
+        </div>
+      </div>
       { this.showIcons ?
       <div className="icon-group">
           {this.icons.map((icon, index) => {
@@ -87,11 +86,6 @@ class App extends Component {
       : <div></div>
       }
       <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered}/>
-      <hr /> 
-      {this.props.user.email ? <button className="primary-button"
-              onClick={() => this.signOut()}> Sign Out</button>
-      : <div></div>
-      }
     </div>);
   }
 }

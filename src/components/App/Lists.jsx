@@ -11,6 +11,7 @@ class Lists extends Component {
         this.state = {
             shownLists: []
         }
+        this.filteredLists = [];
     }
 
     componentDidMount() {
@@ -28,19 +29,16 @@ class Lists extends Component {
         })
     }
 
-    componentWillMount() {
-        var filteredLists = [];
-        if (this.props.filterEntered === true){
+    componentDidUpdate() {
+        if (this.props.filterEntered === true && this.filteredLists.length === 0){
             if (this.props.filterKey.length > 0) {
                 this.props.lists.forEach(list => {
                     if (list.icon.indexOf(this.props.filterKey) > -1) {
-                        filteredLists.push(list);
+                        this.filteredLists.push(list);
                     }
                 });
-                this.setState({shownLists: filteredLists});
-            } else {
-                this.setState({shownLists: this.props.lists});
             }
+            this.setState({shownLists: this.filteredLists});
         }
     }
 

@@ -24,28 +24,22 @@ class AddList extends Component {
             <div>
                 <div className="list-expansion">
                     <h4>Add a List</h4>
-                    {this.props.user.email ? 
                     <button className="primary-button add-list-button"
-                            onClick={() => this.openInput()}>&#45;</button>
-                    : <h4 className="spcl-warning"><i>Log in or sign up to add a list</i></h4>        
-                    }
+                            onClick={() => this.openInput()}>&#45;</button>       
                 </div>
                 <ListInputGroup />
             </div>
             )
         } else {
             return (
-            <div>
                 <div className="list-expansion">
-                    <h4>Add a List</h4>
-                    {this.props.user.email ? 
-                    <button className="primary-button add-list-button"
-                            onClick={() => this.openInput()}
-                            id="open-input-button">&#43;</button>
-                    : <h4 className="spcl-warning"><i>Log in or sign up to add a list</i></h4>        
-                    }
+                    <h4 className="list-option-title">Share Your Expertise and Get Paid Doing It</h4>
+                    <div className="add-list-option">
+                        <button className="primary-button list-option-title"
+                                onClick={() => this.openInput()}
+                                id="open-input-button">Add a List</button>
+                    </div>
                 </div>
-            </div>
             )
         }
     }
