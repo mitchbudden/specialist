@@ -5,6 +5,7 @@ import { setLists } from '../../actions';
 import ListContent from './ListContent';
 import '../Global.css';
 import './ListPage.css';
+import logo from '../../images/logo.jpg';
 
 class ListPage extends Component {
 
@@ -26,12 +27,7 @@ class ListPage extends Component {
     render() {
         return (
             <div>
-                <div className="app-header">
-                    <h1 className="masthead">
-                        <a href="/"><i>Blue Links</i></a>
-                    </h1>
-                    <h1 className="app-header-item"><a href="signin">Sign In/ Sign Up</a></h1>
-                </div>
+                <a href="/"><img className="logo" src={logo} alt="blue links"/></a>
                 <div className="content-container">
                     {this.props.lists.map((list, index) => {
                         return (

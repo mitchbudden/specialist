@@ -1,3 +1,8 @@
+.logo {
+    height: 7em;
+    width: 20em;
+}
+
 .primary-button {
     color: black;
     background-color: #9ecae1;

@@ -8,6 +8,7 @@ import '../Global.css';
 import { browserHistory } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { iconList } from '../../constants';
+import logo from '../../images/logo.jpg';
 
 class App extends Component {
 
@@ -57,9 +58,7 @@ class App extends Component {
   render() {
     return (
     <div style={{margin: '5px'}}>
-      <div className="app-header">
-        <h1 className="masthead">Blue Links</h1>
-      </div>
+      <img className="logo" src={logo} alt="blue links"/>
       <div className="list-option-headers">
         <AddList />
         <div className="list-expansion">
