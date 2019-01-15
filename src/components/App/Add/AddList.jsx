@@ -33,7 +33,7 @@ class AddList extends Component {
         } else {
             return (
                 <div className="list-expansion">
-                    <h4 className="list-option-title">Share Your Expertise, and Get Paid Doing It</h4>
+                    <h4 className="list-option-title">Make Money Sharing Your Expertise</h4>
                     <div className="add-list-option">
                         <button className="primary-button list-option-title"
                                 onClick={() => this.openInput()}
