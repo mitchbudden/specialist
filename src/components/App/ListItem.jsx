@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class ListItem extends Component {
 
     render() {
-        console.log(this.props.list.title);
         const { email, title, description, icon } = this.props.list;
         return (
             <div>

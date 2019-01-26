@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { listsRef } from '../../firebase';
+import { newListsRef } from '../../firebase';
 import { connect } from 'react-redux';
 import '../Global.css';
 import './AddList.css';
@@ -37,7 +37,7 @@ class ListInputGroup extends Component {
             icon: this.selectedIcons,
             listItems: newListItemArray
         }
-        listsRef.push(newListObject);
+        newListsRef.push(newListObject);
         this.ableToInput = false;
         this.forceUpdate();
     }
@@ -155,7 +155,7 @@ class ListInputGroup extends Component {
             )
         } else {
             return (
-                <div></div>
+                <div>Thank you! Your list will be reviewed as soon as possible, and we will reach out to you through email shortly</div>
             )
         }
     }

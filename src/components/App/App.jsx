@@ -60,17 +60,17 @@ class App extends Component {
         <img className="logo" src={logo} alt="blue links" />
         <div className="list-option-headers">
           <div className="list-expansion">
-            <h1 className="list-option-title">Make Money Sharing Your Expertise</h1>
+            <h1 className="list-option-title">Make Money Sharing The Things You Love</h1>
             <a href="/addlist">
               <button className="primary-button app-section-header list-option-title">
-                Add A List
+                Create a List
           </button></a>
           </div>
           <div className="list-expansion">
             <h1 className="list-option-title">Find Out What the Experts Use</h1>
             <button className="primary-button app-section-header list-option-title"
               onClick={() => this.filterLists()}
-              id="filter-button">Filter Lists
+              id="filter-button">Find a List
                   <FontAwesomeIcon size="sm" icon="filter" />
             </button>
           </div>
