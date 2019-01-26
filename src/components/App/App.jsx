@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { firebaseApp } from '../../firebase';
 import { connect } from 'react-redux';
-import AddList from './Add/AddList';
 import Lists from './Lists.jsx';
 import './App.css';
 import '../Global.css';
@@ -12,7 +11,7 @@ import logo from '../../images/logo.jpg';
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       filterKey: '',
@@ -40,12 +39,12 @@ class App extends Component {
     let valueId = value + "-filter-button";
 
     // TODO wtf why doesn't this work?
-    this.setState({filterKey: value});
-    this.setState({filterEntered: true});
+    this.setState({ filterKey: value });
+    this.setState({ filterEntered: true });
 
     this.icons.forEach(item => {
       if (item.name === value) {
-          item.selected = item.selected === true ? false : true;
+        item.selected = item.selected === true ? false : true;
       }
     });
 
@@ -53,39 +52,45 @@ class App extends Component {
       document.getElementById(valueId).blur();
     }
     this.forceUpdate();
-}
+  }
 
   render() {
     return (
-    <div style={{margin: '5px'}}>
-      <img className="logo" src={logo} alt="blue links"/>
-      <div className="list-option-headers">
-        <AddList />
-        <div className="list-expansion">
-          <h1 className="list-option-title">Find Out What the Experts Use</h1>
-          <button className="primary-button app-section-header list-option-title"
-                  onClick={() => this.filterLists()}
-                  id="filter-button">Filter Lists
+      <div style={{ margin: '5px' }}>
+        <img className="logo" src={logo} alt="blue links" />
+        <div className="list-option-headers">
+          <div className="list-expansion">
+            <h1 className="list-option-title">Make Money Sharing Your Expertise</h1>
+            <a href="/addlist">
+              <button className="primary-button app-section-header list-option-title">
+                Add A List
+          </button></a>
+          </div>
+          <div className="list-expansion">
+            <h1 className="list-option-title">Find Out What the Experts Use</h1>
+            <button className="primary-button app-section-header list-option-title"
+              onClick={() => this.filterLists()}
+              id="filter-button">Filter Lists
                   <FontAwesomeIcon size="sm" icon="filter" />
-          </button>
+            </button>
+          </div>
         </div>
-      </div>
-      { this.showIcons ?
-      <div className="icon-group">
-          {this.icons.map((icon, index) => {
+        {this.showIcons ?
+          <div className="icon-group">
+            {this.icons.map((icon, index) => {
               return (
-                  <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
-                      onClick={() => this.addIcon({icon})}
-                      key={index}
-                      id={icon.name + "-filter-button"}>
-                      <FontAwesomeIcon size="2x" icon={icon.name}/></button>
+                <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
+                  onClick={() => this.addIcon({ icon })}
+                  key={index}
+                  id={icon.name + "-filter-button"}>
+                  <FontAwesomeIcon size="2x" icon={icon.name} /></button>
               )
-          })}
-      </div>
-      : <div></div>
-      }
-      <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered}/>
-    </div>);
+            })}
+          </div>
+          : <div></div>
+        }
+        <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered} />
+      </div>);
   }
 }
 

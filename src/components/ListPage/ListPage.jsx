@@ -17,7 +17,7 @@ class ListPage extends Component {
                 const { email, title, description, listItems } = list.val();
                 const serverKey = list.key;
                 if (title === paramName) {
-                    lists.push({email, title, description, listItems, serverKey});
+                    lists.push({ email, title, description, listItems, serverKey });
                 }
             })
             this.props.setLists(lists);
@@ -27,12 +27,12 @@ class ListPage extends Component {
     render() {
         return (
             <div>
-                <a href="/"><img className="logo" src={logo} alt="blue links"/></a>
+                <a href="/"><img className="logo" src={logo} alt="blue links" /></a>
                 <div className="content-container">
                     {this.props.lists.map((list, index) => {
                         return (
-                            <ListContent key={index} 
-                                    list={list}>
+                            <ListContent key={index}
+                                list={list}>
                             </ListContent>
                         )
                     })}

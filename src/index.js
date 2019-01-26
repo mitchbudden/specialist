@@ -5,21 +5,24 @@ import { Router, Route, browserHistory } from "react-router";
 import App from "./components/App/App";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
+import AddList from "./components/Add/AddList";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers';
 // import { logUser } from './actions';
 import ListPage from './components/ListPage/ListPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCheckSquare, faCoffee, faUmbrellaBeach,
-      faSwimmer, faSuitcase, faCookieBite, faMusic,
-      faBook, faPodcast, faLaptop, faSnowflake,
-      faTshirt, faGift, faBicycle, faDumbbell, faFilter } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCheckSquare, faCoffee, faUmbrellaBeach,
+  faSwimmer, faSuitcase, faCookieBite, faMusic,
+  faBook, faPodcast, faLaptop, faSnowflake,
+  faTshirt, faGift, faBicycle, faDumbbell, faFilter
+} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faCheckSquare, faCoffee, faUmbrellaBeach, faSwimmer,
-            faSuitcase, faCookieBite, faMusic, faBook, faPodcast,
-            faLaptop, faSnowflake, faTshirt, faGift, faBicycle, faDumbbell,
-            faFilter);
+  faSuitcase, faCookieBite, faMusic, faBook, faPodcast,
+  faLaptop, faSnowflake, faTshirt, faGift, faBicycle, faDumbbell,
+  faFilter);
 
 const store = createStore(reducer);
 
@@ -35,6 +38,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router path="/" history={browserHistory}>
       <Route path="/" component={App} />
+      <Route path="/addlist" component={AddList} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/:id" component={ListPage} />

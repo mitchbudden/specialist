@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class ListItem extends Component {
 
     render() {
+        console.log(this.props.list.title);
         const { email, title, description, icon } = this.props.list;
         return (
             <div>
@@ -19,8 +20,8 @@ class ListItem extends Component {
                         {icon.map((eachIcon, index) => {
                             return (
                                 <FontAwesomeIcon icon={eachIcon}
-                                size="6x" 
-                                key={index}/>
+                                    size="6x"
+                                    key={index} />
                             )
                         })}
                     </div>

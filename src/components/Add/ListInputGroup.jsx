@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { listsRef } from '../../../firebase';
+import { listsRef } from '../../firebase';
 import { connect } from 'react-redux';
-import '../../Global.css';
+import '../Global.css';
 import './AddList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { iconList } from '../../../constants';
+import { iconList } from '../../constants';
 
-class AddList extends Component {
-    constructor(props){
+class ListInputGroup extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             title: '',
@@ -15,7 +15,7 @@ class AddList extends Component {
         }
         this.selectedIcons = [];
         this.itemDescriptions = [""];
-        this.links = [""];      
+        this.links = [""];
         this.ableToInput = true;
         this.newListItems = [];
         this.icons = iconList
@@ -39,22 +39,22 @@ class AddList extends Component {
         }
         listsRef.push(newListObject);
         this.ableToInput = false;
-        this.forceUpdate();            
+        this.forceUpdate();
     }
 
     addListItem() {
         this.itemDescriptions.push("item");
-        this.forceUpdate();  
+        this.forceUpdate();
         if (document.getElementById("add-list-input-group-button")) {
             document.getElementById("add-list-input-group-button").blur();
-        }    
+        }
     }
 
     handleNewListItem(input, index, type) {
         if (type === "description") {
             this.itemDescriptions[index] = input;
         } else if (type === "link") {
-            this.links[index] = input;            
+            this.links[index] = input;
         }
     }
 
@@ -87,67 +87,67 @@ class AddList extends Component {
                 <div className="list-input">
                     <div className="list-category">
                         <h4 className="list-input-title">Title: </h4>
-                        <textarea 
+                        <textarea
                             type="text"
                             placeholder="List Title"
                             className="list-input-field"
-                            onChange={event => this.setState({title: event.target.value})}
+                            onChange={event => this.setState({ title: event.target.value })}
                         />
                     </div>
                     <div className="list-category">
-                        <h4 className="list-input-title">Description: </h4>                    
-                        <textarea 
+                        <h4 className="list-input-title">Description: </h4>
+                        <textarea
                             type="text"
                             placeholder="List description"
                             className="list-input-field"
-                            onChange={event => this.setState({description: event.target.value})}
+                            onChange={event => this.setState({ description: event.target.value })}
                         />
                     </div>
                     <div className="list-category-final">
-                        <h4 className="list-input-title">Select Icon Tags: 
+                        <h4 className="list-input-title">Select Icon Tags:
                         </h4>
                         <div className="icon-group">
                             {this.icons.map((icon, index) => {
                                 return (
                                     <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
-                                        onClick={() => this.addIcon({icon})}
+                                        onClick={() => this.addIcon({ icon })}
                                         key={index}
                                         id={icon.name + "-input-button"}>
-                                        <FontAwesomeIcon size="2x" icon={icon.name}/></button>
+                                        <FontAwesomeIcon size="2x" icon={icon.name} /></button>
                                 )
                             })}
                         </div>
                     </div>
                     <div className="list-category-group">
-                        <h4 className="list-input-title">Add List Items: 
+                        <h4 className="list-input-title">Add List Items:
                             <button className="primary-button add-list-button"
-                                    id="add-list-input-group-button"
-                                    onClick={() => this.addListItem()}>&#43;</button></h4>
-                        
+                                id="add-list-input-group-button"
+                                onClick={() => this.addListItem()}>&#43;</button></h4>
+
                         <div className="each-list-group">
                             {this.itemDescriptions.map((item, index) => (
                                 <div key={index}>
                                     <h4 className="item-number">{index + 1}</h4>
                                     <div className="list-item-input-group">
-                                        <textarea 
+                                        <textarea
                                             type="text"
                                             placeholder="list description"
                                             className="list-item-desc-or-link"
                                             onChange={event => this.handleNewListItem(event.target.value, index, 'description')}
                                         />
-                                        <textarea 
+                                        <textarea
                                             type="text"
                                             placeholder="list link"
                                             className="list-item-desc-or-link"
-                                            onChange={event => this.handleNewListItem(event.target.value, index, 'link')}                                        />
+                                            onChange={event => this.handleNewListItem(event.target.value, index, 'link')} />
                                     </div>
                                 </div>
-                            ))}    
-                        </div>        
+                            ))}
+                        </div>
                     </div>
                     <button className="primary-button"
-                            type="button"
-                            onClick={() => this.addList()}>Submit
+                        type="button"
+                        onClick={() => this.addList()}>Submit
                     </button>
                     <div className="list-category-final">
                     </div>
@@ -166,4 +166,4 @@ function mapStateToProps(state) {
     return { user };
 }
 
-export default connect(mapStateToProps, null)(AddList);
+export default connect(mapStateToProps, null)(ListInputGroup);

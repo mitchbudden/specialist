@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ListInputGroup from './ListInputGroup';
-import '../../Global.css';
+import '../Global.css';
 import './AddList.css';
 
 class AddList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.isOpen = false;
     }
-    
+
     openInput() {
         this.isOpen = this.isOpen === false ? true : false;
         this.forceUpdate();
@@ -21,14 +21,14 @@ class AddList extends Component {
     render() {
         if (this.isOpen) {
             return (
-            <div>
-                <div className="list-expansion">
-                    <h4>Add a List</h4>
-                    <button className="primary-button add-list-button"
-                            onClick={() => this.openInput()}>&#45;</button>       
+                <div>
+                    <div className="list-expansion">
+                        <h4>Add a List</h4>
+                        <button className="primary-button add-list-button"
+                            onClick={() => this.openInput()}>&#45;</button>
+                    </div>
+                    <ListInputGroup />
                 </div>
-                <ListInputGroup />
-            </div>
             )
         } else {
             return (
@@ -36,8 +36,8 @@ class AddList extends Component {
                     <h4 className="list-option-title">Make Money Sharing Your Expertise</h4>
                     <div className="add-list-option">
                         <button className="primary-button list-option-title"
-                                onClick={() => this.openInput()}
-                                id="open-input-button">Add a List</button>
+                            onClick={() => this.openInput()}
+                            id="open-input-button">Add a List</button>
                     </div>
                 </div>
             )
