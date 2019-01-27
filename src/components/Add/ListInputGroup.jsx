@@ -6,10 +6,13 @@ import './AddList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { iconList } from '../../constants';
 
+// TODO split this into multiple components, it's the largest component by far
 class ListInputGroup extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: '',
+            email: '',
             title: '',
             description: '',
         }
@@ -31,8 +34,9 @@ class ListInputGroup extends Component {
             newListItemArray.push(itemValues);
         }
         const newListObject = {
+            name: this.state.name,
+            email: this.state.email,
             title: this.state.title,
-            email: this.props.user.email,
             description: this.state.description,
             icon: this.selectedIcons,
             listItems: newListItemArray
@@ -47,6 +51,16 @@ class ListInputGroup extends Component {
         this.forceUpdate();
         if (document.getElementById("add-list-input-group-button")) {
             document.getElementById("add-list-input-group-button").blur();
+        }
+    }
+
+    removeListItem() {
+        if (this.itemDescriptions.length > 0) {
+            this.itemDescriptions.pop();
+            this.forceUpdate();
+            if (document.getElementById("add-list-input-group-button")) {
+                document.getElementById("add-list-input-group-button").blur();
+            }
         }
     }
 
@@ -86,8 +100,26 @@ class ListInputGroup extends Component {
             return (
                 <div className="list-input">
                     <div className="list-category">
-                        <h4 className="list-input-title">Title: </h4>
-                        <textarea
+                        <h4 className="list-input-title">Your Name: </h4>
+                        <input
+                            type="text"
+                            placeholder="Your Name"
+                            className="list-input-field"
+                            onChange={event => this.setState({ name: event.target.value })}
+                        />
+                    </div>
+                    <div className="list-category">
+                        <h4 className="list-input-title">Email: </h4>
+                        <input
+                            type="text"
+                            placeholder="Your Email"
+                            className="list-input-field"
+                            onChange={event => this.setState({ email: event.target.value })}
+                        />
+                    </div>
+                    <div className="list-category">
+                        <h4 className="list-input-title">List Title: </h4>
+                        <input
                             type="text"
                             placeholder="List Title"
                             className="list-input-field"
@@ -95,11 +127,11 @@ class ListInputGroup extends Component {
                         />
                     </div>
                     <div className="list-category">
-                        <h4 className="list-input-title">Description: </h4>
+                        <h4 className="list-input-title"> List Description: </h4>
                         <textarea
                             type="text"
                             placeholder="List description"
-                            className="list-input-field"
+                            className="list-input-description"
                             onChange={event => this.setState({ description: event.target.value })}
                         />
                     </div>
@@ -122,7 +154,11 @@ class ListInputGroup extends Component {
                         <h4 className="list-input-title">Add List Items:
                             <button className="primary-button add-list-button"
                                 id="add-list-input-group-button"
-                                onClick={() => this.addListItem()}>&#43;</button></h4>
+                                onClick={() => this.addListItem()}>&#43;</button>
+                            <button className="primary-button add-list-button"
+                                id="add-list-input-group-button"
+                                onClick={() => this.removeListItem()}>-</button>
+                        </h4>
 
                         <div className="each-list-group">
                             {this.itemDescriptions.map((item, index) => (
@@ -155,7 +191,9 @@ class ListInputGroup extends Component {
             )
         } else {
             return (
-                <div>Thank you! Your list will be reviewed as soon as possible, and we will reach out to you through email shortly</div>
+                <div>
+                    <h1 className="after-submit">Thank you! Your list will be reviewed as soon as possible, and we will reach out to you through email shortly</h1>
+                </div>
             )
         }
     }

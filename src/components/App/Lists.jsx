@@ -6,7 +6,7 @@ import ListItem from './ListItem';
 import './Lists.css';
 
 class Lists extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             shownLists: []
@@ -15,22 +15,21 @@ class Lists extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         listsRef.on('value', data => {
             let lists = [];
             data.forEach(list => {
                 const { email, title, description, icon } = list.val();
                 const serverKey = list.key;
-                lists.push({email, title, description, icon, serverKey});
+                lists.push({ email, title, description, icon, serverKey });
             })
             this.props.setLists(lists);
-            this.setState({shownLists: lists});
+            this.setState({ shownLists: lists });
             this.forceUpdate();
         })
     }
 
     componentDidUpdate() {
-        if (this.props.filterEntered === true && this.filteredLists.length === 0){
+        if (this.props.filterEntered === true && this.filteredLists.length === 0) {
             if (this.props.filterKey.length > 0) {
                 this.props.lists.forEach(list => {
                     if (list.icon.indexOf(this.props.filterKey) > -1) {
@@ -38,7 +37,7 @@ class Lists extends Component {
                     }
                 });
             }
-            this.setState({shownLists: this.filteredLists});
+            this.setState({ shownLists: this.filteredLists });
         }
     }
 
@@ -47,8 +46,8 @@ class Lists extends Component {
             <div className="list-group">
                 {this.state.shownLists.map((list, index) => {
                     return (
-                        <ListItem key={index} 
-                                list={list}>{list.title}
+                        <ListItem key={index}
+                            list={list}>{list.title}
                         </ListItem>
                     )
                 })}
