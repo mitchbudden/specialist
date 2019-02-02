@@ -1,29 +1,28 @@
 import React, { Component } from "react";
-import { firebaseApp } from '../../firebase';
-import { connect } from 'react-redux';
-import Lists from './Lists.jsx';
-import './App.css';
-import '../Global.css';
+import { firebaseApp } from "../../firebase";
+import { connect } from "react-redux";
+import Lists from "./Lists.jsx";
+import "./App.css";
+import "../Global.css";
 import { browserHistory } from "react-router";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { iconList } from '../../constants';
-import logo from '../../images/logo.jpg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { iconList } from "../../constants";
+import logo from "../../images/logo.jpg";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      filterKey: '',
+      filterKey: "",
       filterEntered: false
-    }
+    };
     this.icons = iconList;
     this.showIcons = false;
   }
 
   signOut() {
     firebaseApp.auth().signOut();
-    browserHistory.push('/signin');
+    browserHistory.push("/signin");
   }
 
   filterLists() {
@@ -36,11 +35,11 @@ class App extends Component {
 
   addIcon(icon) {
     let value = Object.values(icon)[0].name;
+    let hasIconBeenSelected = !Object.values(icon)[0].selected;
     let valueId = value + "-filter-button";
 
-    // TODO wtf why doesn't this work?
     this.setState({ filterKey: value });
-    this.setState({ filterEntered: true });
+    this.setState({ filterEntered: hasIconBeenSelected });
 
     this.icons.forEach(item => {
       if (item.name === value) {
@@ -56,41 +55,57 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ margin: '5px' }}>
+      <div style={{ margin: "5px" }}>
         <img className="logo" src={logo} alt="blue links" />
         <div className="list-option-headers">
           <div className="list-expansion">
-            <h1 className="list-option-title">Make Money Sharing The Things You Love</h1>
+            <h1 className="list-option-title">
+              Make Money Sharing The Things You Love
+            </h1>
             <a href="/addlist">
               <button className="primary-button app-section-header list-option-title">
                 Create a List
-          </button></a>
+              </button>
+            </a>
           </div>
           <div className="list-expansion">
             <h1 className="list-option-title">Find Out What the Experts Use</h1>
-            <button className="primary-button app-section-header list-option-title"
+            <button
+              className="primary-button app-section-header list-option-title"
               onClick={() => this.filterLists()}
-              id="filter-button">Find a List
-                  <FontAwesomeIcon size="sm" icon="filter" />
+              id="filter-button"
+            >
+              Find a List
+              <FontAwesomeIcon size="sm" icon="filter" />
             </button>
           </div>
         </div>
-        {this.showIcons ?
+        {this.showIcons ? (
           <div className="icon-group">
             {this.icons.map((icon, index) => {
               return (
-                <button className={"icon-button " + (icon.selected ? "selected-icon" : "")}
+                <button
+                  className={
+                    "icon-button " + (icon.selected ? "selected-icon" : "")
+                  }
                   onClick={() => this.addIcon({ icon })}
                   key={index}
-                  id={icon.name + "-filter-button"}>
-                  <FontAwesomeIcon size="2x" icon={icon.name} /></button>
-              )
+                  id={icon.name + "-filter-button"}
+                >
+                  <FontAwesomeIcon size="2x" icon={icon.name} />
+                </button>
+              );
             })}
           </div>
-          : <div></div>
-        }
-        <Lists filterKey={this.state.filterKey} filterEntered={this.state.filterEntered} />
-      </div>);
+        ) : (
+          <div />
+        )}
+        <Lists
+          filterKey={this.state.filterKey}
+          filterEntered={this.state.filterEntered}
+        />
+      </div>
+    );
   }
 }
 
