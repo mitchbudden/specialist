@@ -82,18 +82,22 @@ class App extends Component {
         </div>
         {this.showIcons ? (
           <div className="icon-group">
+            <h4 className="list-option-title">Select a Category:</h4>
             {this.icons.map((icon, index) => {
               return (
-                <button
-                  className={
-                    "icon-button " + (icon.selected ? "selected-icon" : "")
-                  }
-                  onClick={() => this.addIcon({ icon })}
-                  key={index}
-                  id={icon.name + "-filter-button"}
-                >
-                  <FontAwesomeIcon size="2x" icon={icon.name} />
-                </button>
+                <div className="icon-and-description">
+                  <h4>{icon.description}</h4>
+                  <button
+                    className={
+                      "icon-button " + (icon.selected ? "selected-icon" : "")
+                    }
+                    onClick={() => this.addIcon({ icon })}
+                    key={index}
+                    id={icon.name + "-filter-button"}
+                  >
+                    <FontAwesomeIcon size="4x" icon={icon.name} />
+                  </button>
+                </div>
               );
             })}
           </div>

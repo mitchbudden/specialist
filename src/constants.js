@@ -1,8 +1,13 @@
-export const SIGNED_IN = 'SIGNED_IN';
-export const SET_LISTS = 'SET_LISTS';
+export const SIGNED_IN = "SIGNED_IN";
+export const SET_LISTS = "SET_LISTS";
 
-export const iconList = [{name: "coffee", selected: false}, {name: "umbrella-beach", selected: false},
-        {name: "swimmer", selected: false}, {name: "suitcase", selected: false}, {name: "cookie-bite", selected: false},
-        {name: "music", selected: false}, {name: "book", selected: false}, {name: "podcast" , selected: false}, 
-        {name: "laptop", selected: false}, {name: "snowflake", selected: false}, {name: "tshirt", selected: false},
-        {name: "gift", selected: false}, {name: "bicycle", selected: false}, {name: "dumbbell", selected: false}];
+export const iconList = [
+  { name: "music", description: "Music", selected: false },
+  { name: "book", description: "Books", selected: false },
+  { name: "tshirt", description: "Clothing", selected: false },
+  { name: "utensils", description: "Food", selected: false },
+  { name: "laptop", description: "Electronics", selected: false },
+  { name: "suitcase", description: "Travel", selected: false },
+  { name: "capsules", description: "Nutrition", selected: false },
+  { name: "umbrella-beach", description: "Outdoors", selected: false }
+];

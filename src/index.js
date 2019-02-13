@@ -6,23 +6,33 @@ import App from "./components/App/App";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
 import AddList from "./components/Add/AddList";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './reducers';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./reducers";
 // import { logUser } from './actions';
-import ListPage from './components/ListPage/ListPage';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import ListPage from "./components/ListPage/ListPage";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faCheckSquare, faCoffee, faUmbrellaBeach,
-  faSwimmer, faSuitcase, faCookieBite, faMusic,
-  faBook, faPodcast, faLaptop, faSnowflake,
-  faTshirt, faGift, faBicycle, faDumbbell, faFilter
-} from '@fortawesome/free-solid-svg-icons';
+  faMusic,
+  faBook,
+  faUmbrellaBeach,
+  faTshirt,
+  faUtensils,
+  faLaptop,
+  faSuitcase,
+  faCapsules
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faCheckSquare, faCoffee, faUmbrellaBeach, faSwimmer,
-  faSuitcase, faCookieBite, faMusic, faBook, faPodcast,
-  faLaptop, faSnowflake, faTshirt, faGift, faBicycle, faDumbbell,
-  faFilter);
+library.add(
+  faMusic,
+  faBook,
+  faUmbrellaBeach,
+  faTshirt,
+  faUtensils,
+  faLaptop,
+  faSuitcase,
+  faCapsules
+);
 
 const store = createStore(reducer);
 
