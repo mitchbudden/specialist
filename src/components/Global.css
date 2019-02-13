@@ -1,124 +1,124 @@
 .logo {
-  height: 7em;
-  width: 20em;
-  margin-left: 10%;
+    height: 7em;
+    width: 20em;
+    margin-left: 10%;
 }
 
 .primary-button {
-  color: black;
-  background-color: #9ecae1;
-  font-family: "Roboto", sans-serif;
-  box-shadow: 1px 1px #3182bd;
-  font-size: 18px;
-  height: 2em;
-  margin: 5px;
-  border-radius: 7.5px;
-  padding: 5px;
+    color: black;
+    background-color: #9ecae1;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 1px 1px #3182bd;
+    font-size: 18px;
+    height: 2em;
+    margin: 5px;
+    border-radius: 7.5px;
+    padding: 5px;
 }
 
 .primary-button:hover {
-  border: 2px solid #3182bd;
-  box-shadow: 0px 0px #3182bd;
-  color: #3182bd;
-  background-color: white;
+    border: 2px solid #3182bd;
+    box-shadow: 0px 0px #3182bd;
+    color: #3182bd;
+    background-color: white;
 }
 
 .card-link {
-  text-decoration: none;
-  color: rgb(51, 51, 51);
+    text-decoration: none;
+    color: rgb(51, 51, 51);
 }
 
 .card-link:hover {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .masthead {
-  font-family: "Lobster", cursive;
-  font-size: 32px;
-  padding: 3px;
-  margin-top: 0;
+    font-family: "Lobster", cursive;
+    font-size: 32px;
+    padding: 3px;
+    margin-top: 0;
 }
 
 .spcl-warning {
-  color: red;
-  font-size: 16px;
-  margin-left: 10px;
+    color: red;
+    font-size: 16px;
+    margin-left: 10px;
 }
 
 .add-list-button {
-  width: 25px;
-  height: 25px;
-  padding: 0px;
+    width: 25px;
+    height: 25px;
+    padding: 0px;
 }
 
 .actions-button {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  margin: 10px;
-  font-size: 32px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 32px;
 }
 
 .list-option-title {
-  font-size: 28px;
-  font-size: 28px;
-  margin: 3%;
-  width: 90%;
-  padding: 3%;
-  height: 2.3em;
+    font-size: 28px;
+    font-size: 28px;
+    margin: 3%;
+    width: 90%;
+    padding: 3%;
+    height: 2.3em;
 }
 
 .list-expansion {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 40%;
-  height: 60%;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  background-color: white;
-  margin: 5%;
-  border-radius: 5%;
-  padding: 3%;
-  border: 2px solid #deebf7;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 40%;
+    height: 60%;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    margin: 5%;
+    border-radius: 5%;
+    padding: 3%;
+    border: 2px solid #deebf7;
+    text-align: center;
 }
 
 .icon-group {
-  margin: 2%;
-  padding: 2%;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+    margin: 2%;
+    padding: 2%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .icon-button {
-  margin: 2px;
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 15px;
+    margin: 2px;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 .icon-and-description {
-  margin: 2%;
-  text-align: center;
+    margin: 2%;
+    text-align: center;
 }
 
 @media (max-width: 450px), (max-height: 350px) {
-  .masthead {
-    font-size: 24px;
-  }
+    .masthead {
+        font-size: 24px;
+    }
 
-  .list-expansion {
-    width: 90%;
-  }
+    .list-expansion {
+        width: 90%;
+    }
 
-  .list-option-title {
-    margin: 7%;
-  }
+    .list-option-title {
+        margin: 7%;
+    }
 }

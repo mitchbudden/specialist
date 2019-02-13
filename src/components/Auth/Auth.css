@@ -3,7 +3,7 @@
     font-size: 35px;
     margin: 10px;
     color: #3182bd;
-    font-family: 'Roboto', sans-serif;    
+    font-family: "Roboto", sans-serif;
 }
 
 .sub-title {
@@ -11,17 +11,17 @@
     font-size: 20px;
     font-weight: 500;
     margin: 10px;
-    color: #3182bd;  
+    color: #3182bd;
     margin-bottom: 9%;
-    font-family: 'Roboto', sans-serif;    
+    font-family: "Roboto", sans-serif;
 }
 
 .auth-input {
     margin: 0.5% 25%;
     width: 50%;
     height: 3%;
-    font-size: 18px;    
-    font-family: 'Roboto', sans-serif;    
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
 }
 
 .button-group {
@@ -31,7 +31,7 @@
     margin: 1% 35%;
     width: 30%;
     height: 3%;
-    font-family: 'Roboto', sans-serif;    
+    font-family: "Roboto", sans-serif;
 }
 
 .btn {
@@ -47,7 +47,7 @@
 
 .page-background {
     padding: 30px;
-    background-image: url('https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9028dd6de93ea441c4fa84efb852bcf9&auto=format&fit=crop&w=1224&q=80');
+    background-image: url("https://images.unsplash.com/photo-1526406915894-7bcd65f60845?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9028dd6de93ea441c4fa84efb852bcf9&auto=format&fit=crop&w=1224&q=80");
     background-attachment: fixed;
     opacity: 10%;
     height: 75em;

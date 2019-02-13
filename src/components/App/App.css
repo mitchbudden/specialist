@@ -2,12 +2,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background: 
-    linear-gradient(
-      rgba(1, 13, 22, 0.60), 
-      rgba(1, 13, 22, 0.60)
-    ),
-    url("https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80") no-repeat center center fixed;
+    background: linear-gradient(rgba(1, 13, 22, 0.6), rgba(1, 13, 22, 0.6)),
+        url("https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")
+            no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -24,13 +21,13 @@
     box-shadow: 2px 2px #9ecae1;
     background-color: #deebf7;
     color: black;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .app-header-item {
     font-weight: 500;
     font-size: 16px;
-    color: black;  
+    color: black;
     margin: 10px;
     padding: 10px;
     height: 30px;
@@ -40,7 +37,7 @@
 .app-header-input {
     font-weight: 500;
     font-size: 16px;
-    color: black;  
+    color: black;
     margin: 10px;
     padding: 10px;
     height: 30px;
@@ -48,17 +45,17 @@
 }
 
 .app-section-header {
-    font-family: 'Roboto', sans-serif;
-    margin: 10px; 
+    font-family: "Roboto", sans-serif;
+    margin: 10px;
 }
 
 .sign-out {
-    font-family: 'Roboto', sans-serif;    
+    font-family: "Roboto", sans-serif;
 }
 
 .welcome-message {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;  
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
 }
 
 @media (max-width: 450px), (max-height: 350px) {

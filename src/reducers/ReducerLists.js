@@ -1,11 +1,11 @@
-import { SET_LISTS } from '../constants';
+import { SET_LISTS } from "../constants";
 
 export default (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
         case SET_LISTS:
             const { lists } = action;
             return lists;
         default:
-            return state;    
+            return state;
     }
-}
+};

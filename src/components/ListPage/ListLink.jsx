@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import '../Global.css';
-import './ListContent.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "../Global.css";
+import "./ListContent.css";
 
 class ListLink extends Component {
-
     render() {
         let linkItems = Object.values(this.props.listItems);
         return (
-        <ul className="content-links-list">
-            {linkItems.map((item, index) => {
-                return (
-                    <li className="content-link" key={index}>
-                        <span>{item.itemDesc}: </span>
-                        <a href={item.link}>{item.link}</a>
-                    </li>
-                )
-            })}
-        </ul>    
-        )   
+            <ul className="content-links-list">
+                {linkItems.map((item, index) => {
+                    return (
+                        <li className="content-link" key={index}>
+                            <span>{item.itemDesc}: </span>
+                            <a href={item.link}>{item.link}</a>
+                        </li>
+                    );
+                })}
+            </ul>
+        );
     }
 }
 
@@ -27,4 +26,7 @@ function mapStateToProps(state) {
     return { user };
 }
 
-export default connect(mapStateToProps, null)(ListLink);
+export default connect(
+    mapStateToProps,
+    null
+)(ListLink);
