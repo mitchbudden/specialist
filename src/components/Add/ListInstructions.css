@@ -4,3 +4,16 @@
     align-content: center;
     margin: 3%;
 }
+
+.list-instruction {
+    text-align: center;
+    margin-left: 10%;
+}
+
+.instructions-group {
+    display: flex;
+    flex-direction: row;
+    margin: 3%;
+    padding: 15px;
+    border-bottom: 2px solid #9ecae1;
+}
