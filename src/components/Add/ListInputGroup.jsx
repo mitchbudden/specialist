@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { newListsRef } from "../../firebase";
+// import { newListsRef } from "../../firebase"; 'feature flag' for new lists to seperate db table
+import { listsRef } from "../../firebase";
 import { connect } from "react-redux";
 import "../Global.css";
 import "./AddList.css";
@@ -42,7 +43,8 @@ class ListInputGroup extends Component {
             icon: this.selectedIcons,
             listItems: newListItemArray
         };
-        newListsRef.push(newListObject);
+        // newListsRef.push(newListObject);
+        listsRef.push(newListObject);
         this.ableToInput = false;
         this.forceUpdate();
     }
@@ -143,7 +145,7 @@ class ListInputGroup extends Component {
                         </h4>
                         <textarea
                             type="text"
-                            placeholder="List description"
+                            placeholder="Item description"
                             className="list-input-description"
                             onChange={event =>
                                 this.setState({
@@ -159,7 +161,10 @@ class ListInputGroup extends Component {
                         <div className="icon-group">
                             {this.icons.map((icon, index) => {
                                 return (
-                                    <div className="icon-and-description">
+                                    <div
+                                        key={index}
+                                        className="icon-and-description"
+                                    >
                                         <h4>{icon.description}</h4>
                                         <button
                                             className={
@@ -208,9 +213,9 @@ class ListInputGroup extends Component {
                                 <div key={index}>
                                     <h4 className="item-number">{index + 1}</h4>
                                     <div className="list-item-input-group">
-                                        <textarea
+                                        <input
                                             type="text"
-                                            placeholder="list description"
+                                            placeholder="Enter an Item Description Here"
                                             className="list-item-desc-or-link"
                                             onChange={event =>
                                                 this.handleNewListItem(
@@ -220,9 +225,9 @@ class ListInputGroup extends Component {
                                                 )
                                             }
                                         />
-                                        <textarea
+                                        <input
                                             type="text"
-                                            placeholder="list link"
+                                            placeholder="Enter an Item Link Here"
                                             className="list-item-desc-or-link"
                                             onChange={event =>
                                                 this.handleNewListItem(
@@ -253,7 +258,8 @@ class ListInputGroup extends Component {
                     <h1 className="after-submit">
                         Thank you! Your list will be reviewed as soon as
                         possible, and we will reach out to you through email
-                        shortly
+                        shortly. <a href="/">Click here</a> to Return to the
+                        homepage.
                     </h1>
                 </div>
             );

@@ -67,8 +67,9 @@
 
 .list-item-desc-or-link {
     flex-direction: column;
-    height: 2em;
     width: 100%;
+    box-sizing: border-box;
+    height: 3em;
     margin: 5px;
     padding: 5px;
 }

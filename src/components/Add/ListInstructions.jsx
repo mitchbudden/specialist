@@ -24,7 +24,7 @@ class ListInstructions extends Component {
             },
             {
                 instruction:
-                    "When people like the items on your list and buy them, you get money for your recommendation!",
+                    "When people like the items on your list and buy them - if they are Amazon links - you get money for your recommendation!",
                 icon: "money-bill"
             }
         ];

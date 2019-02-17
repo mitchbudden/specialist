@@ -80,7 +80,6 @@ class App extends Component {
                             id="filter-button"
                         >
                             Find a List
-                            <FontAwesomeIcon size="sm" icon="filter" />
                         </button>
                     </div>
                 </div>
