@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "../Global.css";
 import "./ListInstructions.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { iconList } from "../../constants";
 
 class ListInstructions extends Component {
     constructor() {
@@ -11,28 +10,31 @@ class ListInstructions extends Component {
         this.instructions = [
             {
                 instruction: "Enter your contact information",
-                icon: iconList[0].name
+                icon: "smile"
             },
             {
                 instruction:
                     "Create a list of links to your favorite things - on Amazon if possible",
-                icon: iconList[1].name
+                icon: "pen"
             },
             {
                 instruction:
                     "We review your list, and if it meets our guidelines, we put it on Blue Links",
-                icon: iconList[2].name
+                icon: "thumbs-up"
             },
             {
                 instruction:
                     "When people like the items on your list and buy them, you get money for your recommendation!",
-                icon: iconList[3].name
+                icon: "money-bill"
             }
         ];
     }
     render() {
         return (
             <div className="list-instructions-outer">
+                <h1 className="list-instruction-header">
+                    How to Use Blue Links:
+                </h1>
                 {this.instructions.map((text, index) => {
                     return (
                         <div className="instructions-group" key={index}>

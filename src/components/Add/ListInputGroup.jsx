@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import "../Global.css";
 import "./AddList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { iconList } from "../../constants";
+import { iconList } from "../../constants/listCategoryIcons";
 import ListInstructions from "./ListInstructions";
 
 // TODO split this into multiple components, it's the largest component by far

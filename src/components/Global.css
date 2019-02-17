@@ -1,7 +1,11 @@
+.logo-flex {
+    display: flex;
+    justify-content: center;
+}
+
 .logo {
-    height: 7em;
-    width: 20em;
-    margin-left: 10%;
+    height: 8em;
+    width: 24em;
 }
 
 .primary-button {

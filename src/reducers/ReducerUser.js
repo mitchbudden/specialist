@@ -1,4 +1,4 @@
-import { SIGNED_IN } from "../constants";
+import { SIGNED_IN } from "../constants/listCategoryIcons";
 
 let user = {
     email: null

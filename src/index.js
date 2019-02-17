@@ -20,7 +20,11 @@ import {
     faUtensils,
     faLaptop,
     faSuitcase,
-    faCapsules
+    faCapsules,
+    faSmile,
+    faPen,
+    faThumbsUp,
+    faMoneyBill
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -31,7 +35,11 @@ library.add(
     faUtensils,
     faLaptop,
     faSuitcase,
-    faCapsules
+    faCapsules,
+    faSmile,
+    faPen,
+    faThumbsUp,
+    faMoneyBill
 );
 
 const store = createStore(reducer);

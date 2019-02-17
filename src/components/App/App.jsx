@@ -6,7 +6,7 @@ import "./App.css";
 import "../Global.css";
 import { browserHistory } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { iconList } from "../../constants";
+import { iconList } from "../../constants/listCategoryIcons";
 import logo from "../../images/logo.jpg";
 
 class App extends Component {
@@ -56,7 +56,9 @@ class App extends Component {
     render() {
         return (
             <div style={{ margin: "5px" }}>
-                <img className="logo" src={logo} alt="blue links" />
+                <div className="logo-flex">
+                    <img className="logo" src={logo} alt="blue links" />
+                </div>
                 <div className="list-option-headers">
                     <div className="list-expansion">
                         <h1 className="list-option-title">

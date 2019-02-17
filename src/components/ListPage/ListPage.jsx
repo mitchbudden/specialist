@@ -13,11 +13,11 @@ class ListPage extends Component {
         listsRef.on("value", data => {
             let lists = [];
             data.forEach(list => {
-                const { email, title, description, listItems } = list.val();
+                const { name, title, description, listItems } = list.val();
                 const serverKey = list.key;
                 if (title === paramName) {
                     lists.push({
-                        email,
+                        name,
                         title,
                         description,
                         listItems,
@@ -33,7 +33,9 @@ class ListPage extends Component {
         return (
             <div>
                 <a href="/">
-                    <img className="logo" src={logo} alt="blue links" />
+                    <div className="logo-flex">
+                        <img className="logo" src={logo} alt="blue links" />
+                    </div>
                 </a>
                 <div className="content-container">
                     {this.props.lists.map((list, index) => {

@@ -10,7 +10,9 @@ class AddList extends Component {
         return (
             <div>
                 <a href="/">
-                    <img className="logo" src={logo} alt="blue links" />
+                    <div className="logo-flex">
+                        <img className="logo" src={logo} alt="blue links" />
+                    </div>
                 </a>
                 <ListInputGroup />
             </div>

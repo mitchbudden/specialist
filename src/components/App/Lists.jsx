@@ -18,9 +18,9 @@ class Lists extends Component {
         listsRef.on("value", data => {
             let lists = [];
             data.forEach(list => {
-                const { email, title, description, icon } = list.val();
+                const { name, title, description, icon } = list.val();
                 const serverKey = list.key;
-                lists.push({ email, title, description, icon, serverKey });
+                lists.push({ name, title, description, icon, serverKey });
             });
             this.props.setLists(lists);
             this.setState({ shownLists: lists });

@@ -1,4 +1,4 @@
-import { SET_LISTS } from "../constants";
+import { SET_LISTS } from "../constants/listCategoryIcons";
 
 export default (state = [], action) => {
     switch (action.type) {

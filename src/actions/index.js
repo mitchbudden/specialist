@@ -1,4 +1,4 @@
-import { SIGNED_IN, SET_LISTS } from "../constants";
+import { SIGNED_IN, SET_LISTS } from "../constants/listCategoryIcons";
 
 export function logUser(email) {
     const action = {

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class ListItem extends Component {
     render() {
-        const { email, title, description, icon } = this.props.list;
+        const { name, title, description, icon } = this.props.list;
         return (
             <div>
                 <a
@@ -17,7 +17,7 @@ class ListItem extends Component {
                         <div className="list-item-card">
                             <h1 className="list-header">{title}</h1>
                             <h2 className="list-description">
-                                submitted by {email}
+                                Submitted by {name}
                             </h2>
                             <h2 className="list-description">{description}</h2>
                         </div>
