@@ -24,7 +24,7 @@
 .list-input-title {
     font-size: 16px;
     margin: 0;
-    width: 40%;
+    width: 50%;
     font-weight: 500;
 }
 
@@ -36,7 +36,7 @@
 
 .list-category-final {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 10px;
     padding-bottom: 25px;
     border-bottom: 1px solid #9ecae1;

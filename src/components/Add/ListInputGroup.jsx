@@ -22,6 +22,8 @@ class ListInputGroup extends Component {
         this.itemDescriptions = [""];
         this.links = [""];
         this.ableToInput = true;
+        this.displayInputError = false;
+        this.inputError = "";
         this.newListItems = [];
         this.icons = iconList;
     }
@@ -43,10 +45,18 @@ class ListInputGroup extends Component {
             icon: this.selectedIcons,
             listItems: newListItemArray
         };
-        // newListsRef.push(newListObject);
-        listsRef.push(newListObject);
-        this.ableToInput = false;
-        this.forceUpdate();
+
+        if (this.isNewListIsValid(newListObject)) {
+            // newListsRef.push(newListObject);
+            listsRef.push(newListObject);
+            this.ableToInput = false;
+            this.forceUpdate();
+        } else {
+            this.displayInputError = true;
+            this.inputError =
+                "Please complete all fields on the form to continue";
+            this.forceUpdate();
+        }
     }
 
     addListItem() {
@@ -96,6 +106,25 @@ class ListInputGroup extends Component {
         if (document.getElementById(valueId)) {
             document.getElementById(valueId).blur();
         }
+    }
+
+    isNewListIsValid(list) {
+        let newListItems = Object.values(list);
+        let isNewListValid = true;
+
+        newListItems.forEach(item => {
+            if (typeof item === "string") {
+                if (item === "") {
+                    isNewListValid = false;
+                }
+            } else {
+                if (item.length === 0) {
+                    isNewListValid = false;
+                }
+            }
+        });
+
+        return isNewListValid;
     }
 
     render() {
@@ -242,6 +271,11 @@ class ListInputGroup extends Component {
                             ))}
                         </div>
                     </div>
+                    {this.displayInputError ? (
+                        <h4 className="spcl-warning">{this.inputError}</h4>
+                    ) : (
+                        <br />
+                    )}
                     <button
                         className="primary-button"
                         type="button"

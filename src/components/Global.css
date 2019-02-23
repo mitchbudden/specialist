@@ -92,7 +92,7 @@
 .icon-group {
     margin: 2%;
     padding: 2%;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

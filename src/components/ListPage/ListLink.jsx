@@ -11,7 +11,10 @@ class ListLink extends Component {
                 {linkItems.map((item, index) => {
                     return (
                         <li className="content-link" key={index}>
-                            <span>{item.itemDesc}: </span>
+                            <span>
+                                <b>{item.itemDesc}: </b>
+                            </span>
+                            <br />
                             <a href={item.link}>{item.link}</a>
                         </li>
                     );
