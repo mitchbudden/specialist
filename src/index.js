@@ -24,7 +24,8 @@ import {
     faSmile,
     faPen,
     faThumbsUp,
-    faMoneyBill
+    faMoneyBill,
+    faInfinity
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -39,7 +40,8 @@ library.add(
     faSmile,
     faPen,
     faThumbsUp,
-    faMoneyBill
+    faMoneyBill,
+    faInfinity
 );
 
 const store = createStore(reducer);
