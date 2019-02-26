@@ -31,6 +31,7 @@ class App extends Component {
         if (document.getElementById("filter-button")) {
             document.getElementById("filter-button").blur();
         }
+        this.refs.iconsList.scrollIntoView();
     }
 
     addIcon(icon) {
@@ -83,6 +84,7 @@ class App extends Component {
                         </button>
                     </div>
                 </div>
+                <div ref="iconsList">&nbsp;</div>
                 {this.showIcons ? (
                     <div className="icon-group">
                         <h4 className="list-option-title">
