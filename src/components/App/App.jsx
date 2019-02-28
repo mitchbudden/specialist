@@ -18,6 +18,7 @@ class App extends Component {
         };
         this.icons = iconList;
         this.showIcons = false;
+        this.disableButtons = false;
     }
 
     signOut() {
@@ -39,12 +40,15 @@ class App extends Component {
         let hasIconBeenSelected = !Object.values(icon)[0].selected;
         let valueId = value + "-filter-button";
 
+        this.disableButtons = this.disableButtons === true ? false : true;
+
         this.setState({ filterKey: value });
         this.setState({ filterEntered: hasIconBeenSelected });
 
+        this.icons.forEach(item => (item.selected = false));
         this.icons.forEach(item => {
             if (item.name === value) {
-                item.selected = item.selected === true ? false : true;
+                item.selected = hasIconBeenSelected;
             }
         });
 
@@ -104,6 +108,10 @@ class App extends Component {
                                         onClick={() => this.addIcon({ icon })}
                                         key={index}
                                         id={icon.name + "-filter-button"}
+                                        disabled={
+                                            this.disableButtons &&
+                                            !icon.selected
+                                        }
                                     >
                                         <FontAwesomeIcon
                                             size="4x"

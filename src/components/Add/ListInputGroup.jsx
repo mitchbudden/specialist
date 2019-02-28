@@ -26,6 +26,7 @@ class ListInputGroup extends Component {
         this.inputError = "";
         this.newListItems = [];
         this.icons = iconList;
+        this.diableButtons = false;
     }
 
     addList() {
@@ -88,6 +89,8 @@ class ListInputGroup extends Component {
     addIcon(icon) {
         let value = Object.values(icon)[0].name;
         let valueId = value + "-input-button";
+
+        this.disableButtons = this.disableButtons === true ? false : true;
 
         if (this.selectedIcons.includes(value)) {
             this.selectedIcons = this.selectedIcons.filter(item => {
@@ -206,7 +209,11 @@ class ListInputGroup extends Component {
                                                 this.addIcon({ icon })
                                             }
                                             key={index}
-                                            id={icon.name + "-filter-button"}
+                                            id={icon.name + "-input-button"}
+                                            disabled={
+                                                this.disableButtons &&
+                                                !icon.selected
+                                            }
                                         >
                                             <FontAwesomeIcon
                                                 size="4x"
