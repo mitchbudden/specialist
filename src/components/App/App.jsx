@@ -64,6 +64,11 @@ class App extends Component {
                 <div className="logo-flex">
                     <img className="logo" src={logo} alt="blue links" />
                 </div>
+                <div className="landing-container">
+                    <h1 className="landing-title">
+                        Share links to your favorite things. <br />Get paid doing it.
+                    </h1>
+                </div>
                 <div className="list-option-headers">
                     <div className="list-expansion">
                         <h1 className="list-option-title">
