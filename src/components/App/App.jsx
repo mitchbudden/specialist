@@ -13,8 +13,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filterKey: "",
-            filterEntered: false
+            filterIcon: "",
+            filterEntered: false,
+            searchTerm: ""
         };
         this.icons = iconList;
         this.showIcons = false;
@@ -42,7 +43,7 @@ class App extends Component {
 
         this.disableButtons = this.disableButtons === true ? false : true;
 
-        this.setState({ filterKey: value });
+        this.setState({ filterIcon: value });
         this.setState({ filterEntered: hasIconBeenSelected });
 
         this.icons.forEach(item => (item.selected = false));
@@ -58,6 +59,11 @@ class App extends Component {
         this.forceUpdate();
     }
 
+    enterSearchTerm() {
+        this.setState({ filterEntered: true });
+        document.getElementById("search-button").blur();
+    }
+
     render() {
         return (
             <div style={{ margin: "5px" }}>
@@ -66,7 +72,8 @@ class App extends Component {
                 </div>
                 <div className="landing-container">
                     <h1 className="landing-title">
-                        Share links to your favorite things. <br />Get paid doing it.
+                        Share links to your favorite things. <br />
+                        Get paid doing it.
                     </h1>
                 </div>
                 <div className="list-option-headers">
@@ -96,7 +103,28 @@ class App extends Component {
                 <div ref="iconsList">&nbsp;</div>
                 {this.showIcons ? (
                     <div className="icon-group">
+                        <div className="search-container">
+                            <h4 className="search-title">Search for a List:</h4>
+                            <input
+                                className="search-input"
+                                type="text"
+                                onChange={event =>
+                                    this.setState({
+                                        searchTerm: event.target.value
+                                    })
+                                }
+                            />
+                            <button
+                                className="primary-button"
+                                id="search-button"
+                                onClick={() => this.enterSearchTerm()}
+                            >
+                                Search
+                            </button>
+                        </div>
                         <h4 className="list-option-title">
+                            Or
+                            <br />
                             Select a Category:
                         </h4>
                         {this.icons.map((icon, index) => {
@@ -131,8 +159,9 @@ class App extends Component {
                     <div />
                 )}
                 <Lists
-                    filterKey={this.state.filterKey}
+                    filterIcon={this.state.filterIcon}
                     filterEntered={this.state.filterEntered}
+                    searchTerm={this.state.searchTerm}
                 />
             </div>
         );

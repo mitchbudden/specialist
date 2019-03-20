@@ -30,24 +30,49 @@ class Lists extends Component {
 
     componentDidUpdate() {
         if (
+            // Icon is selected
             this.props.filterEntered === true &&
+            this.props.searchTerm === "" &&
             this.filteredLists.length === 0
         ) {
-            if (this.props.filterKey.length > 0) {
+            if (this.props.filterIcon.length > 0) {
                 this.props.lists.forEach(list => {
-                    if (list.icon.indexOf(this.props.filterKey) > -1) {
+                    if (list.icon.indexOf(this.props.filterIcon) > -1) {
                         this.filteredLists.push(list);
                     }
                 });
             }
             this.setState({ shownLists: this.filteredLists });
         } else if (
+            // icon is un-selected
             this.props.filterEntered === false &&
-            this.props.filterKey.length > 0 &&
+            this.props.filterIcon.length > 0 &&
+            this.props.searchTerm === "" &&
             this.state.shownLists !== this.props.lists
         ) {
             this.filteredLists = [];
             this.setState({ shownLists: this.props.lists });
+        } else if (
+            // search term is entered
+            this.props.filterEntered === true &&
+            this.props.filterIcon.length === 0 &&
+            this.props.searchTerm !== ""
+        ) {
+            let term = this.props.searchTerm.toLowerCase();
+
+            this.props.lists.forEach(list => {
+                let lowerCaseListName = list.title.toLowerCase();
+                if (lowerCaseListName.indexOf(term) > -1) {
+                    this.filteredLists.push(list);
+                }
+            });
+
+            if (
+                this.filteredLists.length &&
+                this.filteredLists !== this.state.shownLists
+            ) {
+                this.setState({ shownLists: this.filteredLists });
+            }
         }
     }
 

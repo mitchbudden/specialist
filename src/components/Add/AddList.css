@@ -45,7 +45,7 @@
 .list-category-group {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 5px;
 }
 
 .add-list-option {
