@@ -227,7 +227,7 @@ class ListInputGroup extends Component {
                     </div>
                     <div className="list-category-group">
                         <h4 className="list-input-title">
-                            Add List Items:
+                            Edit List:
                             <button
                                 className="primary-button add-list-button"
                                 id="add-list-input-group-button"

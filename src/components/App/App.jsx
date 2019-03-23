@@ -57,11 +57,13 @@ class App extends Component {
             document.getElementById(valueId).blur();
         }
         this.forceUpdate();
+        this.refs.listsRef.scrollIntoView();
     }
 
     enterSearchTerm() {
         this.setState({ filterEntered: true });
         document.getElementById("search-button").blur();
+        this.refs.listsRef.scrollIntoView();
     }
 
     render() {
@@ -89,7 +91,7 @@ class App extends Component {
                     </div>
                     <div className="list-expansion">
                         <h1 className="list-option-title">
-                            Find Out What the Experts Use
+                            Learn What the Experts Use
                         </h1>
                         <button
                             className="primary-button app-section-header list-option-title"
@@ -158,6 +160,7 @@ class App extends Component {
                 ) : (
                     <div />
                 )}
+                <span ref="listsRef" />
                 <Lists
                     filterIcon={this.state.filterIcon}
                     filterEntered={this.state.filterEntered}
