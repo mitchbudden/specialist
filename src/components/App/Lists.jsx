@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setLists } from "../../actions";
 import ListItem from "./ListItem";
 import "./Lists.css";
+import "../Global.css";
 
 class Lists extends Component {
     constructor(props) {
@@ -12,6 +13,8 @@ class Lists extends Component {
             shownLists: []
         };
         this.filteredLists = [];
+        this.noMatchingLists = false;
+        this.listHasBeenFiltered = false; // this is a super hacky fix. Need to work with Redux to make this actually work
     }
 
     componentDidMount() {
@@ -71,7 +74,14 @@ class Lists extends Component {
                 this.filteredLists.length &&
                 this.filteredLists !== this.state.shownLists
             ) {
+                this.noMatchingLists = false;
                 this.setState({ shownLists: this.filteredLists });
+            } else {
+                this.noMatchingLists = true;
+                if (!this.listHasBeenFiltered) {
+                    this.forceUpdate();
+                    this.listHasBeenFiltered = true;
+                }
             }
         }
     }
@@ -79,13 +89,20 @@ class Lists extends Component {
     render() {
         return (
             <div className="list-group">
-                {this.state.shownLists.map((list, index) => {
-                    return (
-                        <ListItem key={index} list={list}>
-                            {list.title}
-                        </ListItem>
-                    );
-                })}
+                {this.noMatchingLists ? (
+                    <h1 className="list-option-title">
+                        Sorry, no lists matched your search term. Please try
+                        again.
+                    </h1>
+                ) : (
+                    this.state.shownLists.map((list, index) => {
+                        return (
+                            <ListItem key={index} list={list}>
+                                {list.title}
+                            </ListItem>
+                        );
+                    })
+                )}
             </div>
         );
     }
