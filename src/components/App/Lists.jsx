@@ -14,7 +14,6 @@ class Lists extends Component {
         };
         this.filteredLists = [];
         this.noMatchingLists = false;
-        this.listHasBeenFiltered = false; // this is a super hacky fix. Need to work with Redux to make this actually work
     }
 
     componentDidMount() {
@@ -59,7 +58,8 @@ class Lists extends Component {
             // search term is entered
             this.props.filterEntered === true &&
             this.props.filterIcon.length === 0 &&
-            this.props.searchTerm !== ""
+            this.props.searchTerm !== "" &&
+            this.filteredLists.length === 0
         ) {
             let term = this.props.searchTerm.toLowerCase();
 
@@ -78,10 +78,7 @@ class Lists extends Component {
                 this.setState({ shownLists: this.filteredLists });
             } else {
                 this.noMatchingLists = true;
-                if (!this.listHasBeenFiltered) {
-                    this.forceUpdate();
-                    this.listHasBeenFiltered = true;
-                }
+                this.forceUpdate();
             }
         }
     }

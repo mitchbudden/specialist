@@ -61,9 +61,12 @@ class App extends Component {
     }
 
     enterSearchTerm() {
-        this.setState({ filterEntered: true });
-        document.getElementById("search-button").blur();
-        this.refs.listsRef.scrollIntoView();
+        if (!this.disableButtons) {
+            this.setState({ filterEntered: true });
+            document.getElementById("search-button").blur();
+            this.refs.listsRef.scrollIntoView();
+            this.showIcons = false;
+        }
     }
 
     render() {
