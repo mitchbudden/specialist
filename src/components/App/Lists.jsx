@@ -33,9 +33,10 @@ class Lists extends Component {
     componentDidUpdate() {
         if (
             // Icon is selected
-            this.props.filterEntered === true &&
+            this.props.filterEntered &&
             this.props.searchTerm === "" &&
-            this.filteredLists.length === 0
+            this.filteredLists.length === 0 &&
+            !this.props.hasBeenReset
         ) {
             if (this.props.filterIcon.length > 0) {
                 this.props.lists.forEach(list => {
@@ -47,19 +48,21 @@ class Lists extends Component {
             this.setState({ shownLists: this.filteredLists });
         } else if (
             // icon is un-selected
-            this.props.filterEntered === false &&
+            !this.props.filterEntered &&
             this.props.filterIcon.length > 0 &&
             this.props.searchTerm === "" &&
-            this.state.shownLists !== this.props.lists
+            this.state.shownLists !== this.props.lists &&
+            !this.props.hasBeenReset
         ) {
             this.filteredLists = [];
             this.setState({ shownLists: this.props.lists });
         } else if (
             // search term is entered
-            this.props.filterEntered === true &&
+            this.props.filterEntered &&
             this.props.filterIcon.length === 0 &&
             this.props.searchTerm !== "" &&
-            this.filteredLists.length === 0
+            this.filteredLists.length === 0 &&
+            !this.props.hasBeenReset
         ) {
             let term = this.props.searchTerm.toLowerCase();
 
@@ -78,7 +81,17 @@ class Lists extends Component {
                 this.setState({ shownLists: this.filteredLists });
             } else {
                 this.noMatchingLists = true;
-                this.forceUpdate();
+            }
+        } else if (
+            // reset is selected
+            this.props.filterEntered === false &&
+            this.props.filterIcon === "" &&
+            this.props.searchTerm === "" &&
+            this.props.hasBeenReset
+        ) {
+            this.filteredLists = [];
+            if (this.state.shownLists !== this.props.lists) {
+                this.setState({ shownLists: this.props.lists });
             }
         }
     }

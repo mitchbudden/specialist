@@ -15,7 +15,8 @@ class App extends Component {
         this.state = {
             filterIcon: "",
             filterEntered: false,
-            searchTerm: ""
+            searchTerm: "",
+            hasBeenReset: false
         };
         this.icons = iconList;
         this.showIcons = false;
@@ -45,6 +46,7 @@ class App extends Component {
 
         this.setState({ filterIcon: value });
         this.setState({ filterEntered: hasIconBeenSelected });
+        this.setState({ hasBeenReset: false });
 
         this.icons.forEach(item => (item.selected = false));
         this.icons.forEach(item => {
@@ -63,10 +65,21 @@ class App extends Component {
     enterSearchTerm() {
         if (!this.disableButtons) {
             this.setState({ filterEntered: true });
+            this.setState({ hasBeenReset: false });
             document.getElementById("search-button").blur();
             this.refs.listsRef.scrollIntoView();
             this.showIcons = false;
         }
+    }
+
+    resetSearchParameters() {
+        this.setState({ filterIcon: "" });
+        this.setState({ filterEntered: false });
+        this.setState({ searchTerm: "" });
+        this.setState({ hasBeenReset: true });
+        this.showIcons = true;
+        this.disableButtons = false;
+        this.forceUpdate();
     }
 
     render() {
@@ -168,7 +181,16 @@ class App extends Component {
                     filterIcon={this.state.filterIcon}
                     filterEntered={this.state.filterEntered}
                     searchTerm={this.state.searchTerm}
+                    hasBeenReset={this.state.hasBeenReset}
                 />
+                <div className="reset-search-flex">
+                    <button
+                        className="primary-button reset-search"
+                        onClick={() => this.resetSearchParameters()}
+                    >
+                        Reset Search
+                    </button>
+                </div>
             </div>
         );
     }

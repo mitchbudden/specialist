@@ -100,6 +100,12 @@
     font-size: 18px;
 }
 
+.reset-search-flex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 450px), (max-height: 350px) {
     .search-container {
         display: flex;
