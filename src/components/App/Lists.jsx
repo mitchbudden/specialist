@@ -47,16 +47,6 @@ class Lists extends Component {
             }
             this.setState({ shownLists: this.filteredLists });
         } else if (
-            // icon is un-selected
-            !this.props.filterEntered &&
-            this.props.filterIcon.length > 0 &&
-            this.props.searchTerm === "" &&
-            this.state.shownLists !== this.props.lists &&
-            !this.props.hasBeenReset
-        ) {
-            this.filteredLists = [];
-            this.setState({ shownLists: this.props.lists });
-        } else if (
             // search term is entered
             this.props.filterEntered &&
             this.props.filterIcon.length === 0 &&

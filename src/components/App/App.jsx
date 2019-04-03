@@ -20,7 +20,6 @@ class App extends Component {
         };
         this.icons = iconList;
         this.showIcons = false;
-        this.disableButtons = false;
     }
 
     signOut() {
@@ -42,11 +41,13 @@ class App extends Component {
         let hasIconBeenSelected = !Object.values(icon)[0].selected;
         let valueId = value + "-filter-button";
 
-        this.disableButtons = this.disableButtons === true ? false : true;
+        this.showIcons = false;
 
-        this.setState({ filterIcon: value });
-        this.setState({ filterEntered: hasIconBeenSelected });
-        this.setState({ hasBeenReset: false });
+        this.setState({
+            filterIcon: value,
+            filterEntered: hasIconBeenSelected,
+            hasBeenReset: false
+        });
 
         this.icons.forEach(item => (item.selected = false));
         this.icons.forEach(item => {
@@ -63,23 +64,23 @@ class App extends Component {
     }
 
     enterSearchTerm() {
-        if (!this.disableButtons) {
-            this.setState({ filterEntered: true });
-            this.setState({ hasBeenReset: false });
-            document.getElementById("search-button").blur();
-            this.refs.listsRef.scrollIntoView();
-            this.showIcons = false;
-        }
+        this.setState({ filterEntered: true, hasBeenReset: false });
+        document.getElementById("search-button").blur();
+        this.refs.listsRef.scrollIntoView();
+        this.showIcons = false;
     }
 
     resetSearchParameters() {
-        this.setState({ filterIcon: "" });
-        this.setState({ filterEntered: false });
-        this.setState({ searchTerm: "" });
-        this.setState({ hasBeenReset: true });
-        this.showIcons = true;
-        this.disableButtons = false;
+        this.setState({
+            filterIcon: "",
+            filterEntered: false,
+            searchTerm: "",
+            hasBeenReset: true
+        });
+        this.icons.forEach(item => (item.selected = false));
+        document.getElementById("reset-search-button").blur();
         this.forceUpdate();
+        this.refs.iconsList.scrollIntoView();
     }
 
     render() {
@@ -159,10 +160,6 @@ class App extends Component {
                                         onClick={() => this.addIcon({ icon })}
                                         key={index}
                                         id={icon.name + "-filter-button"}
-                                        disabled={
-                                            this.disableButtons &&
-                                            !icon.selected
-                                        }
                                     >
                                         <FontAwesomeIcon
                                             size="4x"
@@ -187,6 +184,7 @@ class App extends Component {
                     <button
                         className="primary-button reset-search"
                         onClick={() => this.resetSearchParameters()}
+                        id="reset-search-button"
                     >
                         Reset Search
                     </button>
