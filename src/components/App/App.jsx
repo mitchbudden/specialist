@@ -60,14 +60,13 @@ class App extends Component {
             document.getElementById(valueId).blur();
         }
         this.forceUpdate();
-        this.refs.listsRef.scrollIntoView();
     }
 
     enterSearchTerm() {
         this.setState({ filterEntered: true, hasBeenReset: false });
         document.getElementById("search-button").blur();
-        this.refs.listsRef.scrollIntoView();
         this.showIcons = false;
+        this.forceUpdate();
     }
 
     resetSearchParameters() {
@@ -114,6 +113,7 @@ class App extends Component {
                             className="primary-button app-section-header list-option-title"
                             onClick={() => this.filterLists()}
                             id="filter-button"
+                            disabled={this.state.filterEntered}
                         >
                             Find a List
                         </button>
@@ -173,22 +173,25 @@ class App extends Component {
                 ) : (
                     <div />
                 )}
-                <span ref="listsRef" />
+                {this.state.filterEntered ? (
+                    <div className="reset-search-flex">
+                        <button
+                            className="primary-button reset-search"
+                            onClick={() => this.resetSearchParameters()}
+                            id="reset-search-button"
+                        >
+                            Reset Search
+                        </button>
+                    </div>
+                ) : (
+                    <div />
+                )}
                 <Lists
                     filterIcon={this.state.filterIcon}
                     filterEntered={this.state.filterEntered}
                     searchTerm={this.state.searchTerm}
                     hasBeenReset={this.state.hasBeenReset}
                 />
-                <div className="reset-search-flex">
-                    <button
-                        className="primary-button reset-search"
-                        onClick={() => this.resetSearchParameters()}
-                        id="reset-search-button"
-                    >
-                        Reset Search
-                    </button>
-                </div>
             </div>
         );
     }
