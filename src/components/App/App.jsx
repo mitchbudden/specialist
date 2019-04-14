@@ -110,10 +110,10 @@ class App extends Component {
                             Learn What the Experts Use
                         </h1>
                         <button
+                            disabled={this.state.filterEntered}
                             className="primary-button app-section-header list-option-title"
                             onClick={() => this.filterLists()}
                             id="filter-button"
-                            disabled={this.state.filterEntered}
                         >
                             Find a List
                         </button>
