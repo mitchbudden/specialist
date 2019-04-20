@@ -148,7 +148,10 @@ class App extends Component {
                         </h4>
                         {this.icons.map((icon, index) => {
                             return (
-                                <div className="icon-and-description">
+                                <div
+                                    key={index}
+                                    className="icon-and-description"
+                                >
                                     <h4>{icon.description}</h4>
                                     <button
                                         className={

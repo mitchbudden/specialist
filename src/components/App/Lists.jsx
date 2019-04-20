@@ -70,18 +70,28 @@ class Lists extends Component {
                 this.noMatchingLists = false;
                 this.setState({ shownLists: this.filteredLists });
             } else {
+                if (!this.noMatchingLists) {
+                    this.forceUpdate();
+                }
                 this.noMatchingLists = true;
             }
         } else if (
             // reset is selected
-            this.props.filterEntered === false &&
+            !this.props.filterEntered &&
             this.props.filterIcon === "" &&
             this.props.searchTerm === "" &&
             this.props.hasBeenReset
         ) {
             this.filteredLists = [];
-            if (this.state.shownLists !== this.props.lists) {
+            if (
+                this.state.shownLists !== this.props.lists &&
+                !this.noMatchingLists
+            ) {
                 this.setState({ shownLists: this.props.lists });
+            } else if (this.noMatchingLists) {
+                // If reseting after no matches
+                this.noMatchingLists = false;
+                this.forceUpdate();
             }
         }
     }
