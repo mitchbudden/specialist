@@ -216,7 +216,7 @@ class ListInputGroup extends Component {
                                             }
                                         >
                                             <FontAwesomeIcon
-                                                size="4x"
+                                                size="3x"
                                                 icon={icon.name}
                                             />
                                         </button>

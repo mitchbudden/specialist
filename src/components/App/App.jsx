@@ -165,7 +165,7 @@ class App extends Component {
                                         id={icon.name + "-filter-button"}
                                     >
                                         <FontAwesomeIcon
-                                            size="4x"
+                                            size="3x"
                                             icon={icon.name}
                                         />
                                     </button>

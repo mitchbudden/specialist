@@ -10,5 +10,5 @@ export const iconList = [
     { name: "suitcase", description: "Travel", selected: false },
     { name: "capsules", description: "Nutrition", selected: false },
     { name: "umbrella-beach", description: "Outdoors", selected: false },
-    { name: "infinity", description: "Everything Else", selected: false }
+    { name: "infinity", description: "Misc.", selected: false }
 ];
