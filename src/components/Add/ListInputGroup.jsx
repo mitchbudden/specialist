@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import { newListsRef } from "../../firebase"; 'feature flag' for new lists to seperate db table
-import { listsRef } from "../../firebase";
+import { newListsRef } from "../../firebase";
+// import { listsRef } from "../../firebase"; 'feature flag' for new lists to seperate db table
 import { connect } from "react-redux";
 import "../Global.css";
 import "./AddList.css";
@@ -48,8 +48,8 @@ class ListInputGroup extends Component {
         };
 
         if (this.isNewListIsValid(newListObject)) {
-            // newListsRef.push(newListObject);
-            listsRef.push(newListObject);
+            newListsRef.push(newListObject);
+            // listsRef.push(newListObject);
             this.ableToInput = false;
             this.forceUpdate();
         } else {
