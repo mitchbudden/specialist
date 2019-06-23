@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { listsRef } from "../../firebase";
+import { newListsRef } from "../../firebase";
 import { connect } from "react-redux";
 import { setLists } from "../../actions";
 import ListItem from "./ListItem";
@@ -10,10 +11,17 @@ class Lists extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            shownLists: []
+            shownLists: [],
+            newListsToBePushed: []
         };
         this.filteredLists = [];
         this.noMatchingLists = false;
+    }
+
+    pushNewItems() {
+        this.state.newListsToBePushed.forEach(list => {
+            listsRef.push(list);
+        });
     }
 
     componentDidMount() {
@@ -26,6 +34,31 @@ class Lists extends Component {
             });
             this.props.setLists(lists);
             this.setState({ shownLists: lists });
+            this.forceUpdate();
+        });
+
+        // TODO: Repeat Logic - should put this into a service
+        newListsRef.on("value", data => {
+            let newLists = [];
+            data.forEach(list => {
+                const {
+                    name,
+                    title,
+                    description,
+                    icon,
+                    listItems
+                } = list.val();
+                const serverKey = list.key;
+                newLists.push({
+                    name,
+                    title,
+                    description,
+                    icon,
+                    serverKey,
+                    listItems
+                });
+            });
+            this.setState({ newListsToBePushed: newLists });
             this.forceUpdate();
         });
     }
@@ -113,6 +146,12 @@ class Lists extends Component {
                         );
                     })
                 )}
+                {/* <button
+                    className="icon-button"
+                    onClick={() => this.pushNewItems()}
+                >
+                    Push New List Items
+                </button> */}
             </div>
         );
     }

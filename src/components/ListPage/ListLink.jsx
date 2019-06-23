@@ -15,7 +15,11 @@ class ListLink extends Component {
                                 <b>{item.itemDesc}: </b>
                             </span>
                             <br />
-                            <a target="_blank" href={item.link}>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={item.link}
+                            >
                                 {item.link}
                             </a>
                         </li>
