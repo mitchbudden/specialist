@@ -9,7 +9,6 @@ class ListItem extends Component {
         return (
             <div>
                 <a
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="card-link"
                     href={this.props.list.title}

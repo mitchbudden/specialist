@@ -6,6 +6,7 @@ import App from "./components/App/App";
 import SignIn from "./components/Auth/SignIn";
 import SignUp from "./components/Auth/SignUp";
 import AddList from "./components/Add/AddList";
+import RedirectPage from "./components/Redirect/RedirectPage";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducers";
@@ -58,6 +59,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router path="/" history={browserHistory}>
             <Route path="/" component={App} />
+            <Route path="/redirectpage" component={RedirectPage} />
             <Route path="/addlist" component={AddList} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />

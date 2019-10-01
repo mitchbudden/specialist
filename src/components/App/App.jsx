@@ -123,7 +123,7 @@ class App extends Component {
                 {this.showIcons ? (
                     <div className="icon-group">
                         <div className="search-container">
-                            <h4 className="search-title">Search for a List:</h4>
+                            <h4 className="search-title">Search:</h4>
                             <input
                                 className="search-input"
                                 type="text"
@@ -142,8 +142,6 @@ class App extends Component {
                             </button>
                         </div>
                         <h4 className="list-option-title">
-                            Or
-                            <br />
                             Select a Category:
                         </h4>
                         {this.icons.map((icon, index) => {

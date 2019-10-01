@@ -15,13 +15,7 @@ class ListLink extends Component {
                                 <b>{item.itemDesc}: </b>
                             </span>
                             <br />
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={item.link}
-                            >
-                                {item.link}
-                            </a>
+                            <a href="/redirectpage">{item.link}</a>
                         </li>
                     );
                 })}
